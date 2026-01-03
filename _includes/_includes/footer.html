@@ -1,0 +1,28 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="{{ 'feed.xml' | relative_url }}">
+            <svg class="svg-icon orange"><use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use></svg><span>Subscribe via RSS</span>
+          </a>
+        </p>
+        <p>{{ site.description | escape }}</p>
+      </div>
+      
+      <div class="footer-col">
+        <p>© {{ 'now' | date: "%Y" }} {{ site.title | escape }}. All rights reserved.</p>
+        <p>
+          <a href="{{ "/about/" | relative_url }}">About</a> | 
+          <a href="{{ "/contact/" | relative_url }}">Contact</a> | 
+          <a href="{{ "/market-news/" | relative_url }}">News</a>
+        </p>
+        <p style="font-size: 12px; color: #828282;">
+          Disclaimer: This site provides general information only and is not professional financial advice.
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
