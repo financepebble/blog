@@ -1,8 +1,8 @@
-title: Your Blog Name
-description: My personal blog where I share thoughts and ideas
-author: Your Name
-email: your-email@example.com
-url: "https://yourdomain.com"
+title: Finance Pebble
+description: My personal blog where I share thoughts and ideas about finance
+author: Finance
+email: financepebble101@gmail.com
+url: "https://financepebble.com"
 
 # Build settings
 theme: minima
