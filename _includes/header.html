@@ -16,6 +16,10 @@
       <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
         {{ site.title | escape }}
       </a>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <span class="theme-icon" id="lightIcon">☀️</span>
+          <span class="theme-icon" id="darkIcon">🌙</span>
+     </button>
     </div>
     
     <span class="site-tagline">Smart money decisions for life's journey</span>
