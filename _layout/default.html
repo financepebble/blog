@@ -2,7 +2,6 @@
 <html data-theme="light" lang="{{ page.lang | default: site.lang | default: "en" }}">
 <head>
     <link rel="stylesheet" href="{{ '/assets/css/dark-mode.css' | relative_url }}">
-    <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
 </head>
   {%- include head.html -%}
   <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
@@ -18,7 +17,7 @@
     </main>
 
     {%- include footer.html -%}
-
+   <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
   </body>
 
 </html>
