@@ -1,13 +1,31 @@
-title: Finance Pebble
-description: My personal blog where I share thoughts and ideas about finance
-author: Finance
-email: financepebble101@gmail.com
+# Site settings
+title: FinancePebble
+description: "Smart money decisions for life's journey. Practical advice on retirement, taxes, credit cards, deals, and travel for people serious about their finances."
+author: FinancePebble Team
+email: hello@financepebble.com
 url: "https://financepebble.com"
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+
+# Google Analytics
+google_analytics: G-XXXXXXXXXX
+
+# Navigation
+header_pages:
+  - index.md
+  - finance-basics.md
+  - retirement.md
+  - tax-tips.md
+  - credit-cards.md
+  - deals.md
+  - travel.md
+  - market-news.md
+  - about.md
+  - contact.md
 
 # Pagination
 paginate: 10
@@ -15,4 +33,7 @@ paginate_path: "/page:num/"
 
 # SEO
 lang: en
-google_analytics: G-VZEWLWR56S
+timezone: America/Chicago
+
+# Social
+twitter_username: financepebble
