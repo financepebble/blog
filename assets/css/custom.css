@@ -32,34 +32,41 @@
   --input-border: #505050;
 }
 
-/* Dark Mode Toggle Button */
-.dark-mode-toggle {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 60px;
-  height: 60px;
+/* Dark Mode Toggle Button in Header */
+.dark-mode-toggle-header {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background: #1e40af;
+  background: rgba(255, 255, 255, 0.2);
   color: white;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   transition: all 0.3s;
-  z-index: 9999;
+  backdrop-filter: blur(10px);
 }
 
-.dark-mode-toggle:hover {
+.dark-mode-toggle-header:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 30px rgba(30, 64, 175, 0.4);
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
-[data-theme="dark"] .dark-mode-toggle {
-  background: #fbbf24;
+.dark-mode-toggle-header:active {
+  transform: scale(0.95);
+}
+
+[data-theme="dark"] .dark-mode-toggle-header {
+  background: rgba(251, 191, 36, 0.2);
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+[data-theme="dark"] .dark-mode-toggle-header:hover {
+  background: rgba(251, 191, 36, 0.3);
+  border-color: rgba(251, 191, 36, 0.5);
 }
 
 /* ============================================
@@ -144,12 +151,13 @@ body {
 }
 
 .site-nav .trigger {
-    display: flex;
+    display: flex !important;
     gap: 0;
+    flex-wrap: wrap;
 }
 
 .site-nav .page-link {
-    display: inline-block;
+    display: inline-block !important;
     padding: 1.25rem 1.5rem;
     color: var(--text-primary) !important;
     text-decoration: none;
@@ -164,6 +172,15 @@ body {
     border-bottom-color: #1e40af;
     text-decoration: none;
     background: rgba(30, 64, 175, 0.05);
+}
+
+/* Make sure nav-trigger doesn't hide navigation */
+.nav-trigger {
+    display: none !important;
+}
+
+.nav-trigger ~ .trigger {
+    display: flex !important;
 }
 
 /* ============================================
@@ -461,6 +478,62 @@ h3 {
 }
 
 /* ============================================
+   NEWSLETTER CTA
+   ============================================ */
+.newsletter-cta {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin: 4rem 0;
+    border-radius: 20px;
+}
+
+.newsletter-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.newsletter-cta p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+}
+
+.newsletter-form button {
+    padding: 1rem 2.5rem;
+    background: white;
+    color: #1e40af;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.newsletter-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+}
+
+/* ============================================
    BUTTONS
    ============================================ */
 .btn,
@@ -675,12 +748,14 @@ pre code {
         padding: 2rem 0;
     }
     
-    .dark-mode-toggle {
-        bottom: 1rem;
-        right: 1rem;
-        width: 50px;
-        height: 50px;
+    .dark-mode-toggle-header {
+        width: 40px;
+        height: 40px;
         font-size: 1.2rem;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
     }
 }
 
