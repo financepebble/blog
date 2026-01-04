@@ -1,0 +1,20 @@
+<svg width="320" height="80" viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1e40af" />
+            <stop offset="100%" style="stop-color:#06b6d4" />
+        </linearGradient>
+    </defs>
+    
+    <!-- Pebble Icon - Stacked stones representing stability and growth -->
+    <ellipse cx="28" cy="55" rx="18" ry="12" fill="url(#grad1)" opacity="0.9"/>
+    <ellipse cx="28" cy="40" rx="15" ry="10" fill="url(#grad1)" opacity="0.8"/>
+    <ellipse cx="28" cy="28" rx="12" ry="8" fill="url(#grad1)" opacity="0.7"/>
+    
+    <!-- Growth arrow integrated -->
+    <path d="M 40 35 L 48 25 L 44 25 L 44 15 L 52 15 L 52 25 L 48 25 Z" fill="#22d3ee"/>
+    
+    <!-- Text -->
+    <text x="70" y="42" font-family="'Montserrat', sans-serif" font-size="28" font-weight="700" fill="#1e40af">Finance</text>
+    <text x="70" y="62" font-family="'Montserrat', sans-serif" font-size="24" font-weight="700" fill="#64748b">Pebble</text>
+</svg>
