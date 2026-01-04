@@ -48,6 +48,21 @@ body {
     transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+.site-title {
+    color: var(--text-primary) !important;
+    transition: color 0.3s ease;
+}
+
+.site-tagline {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+}
+
+.wrapper {
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+
 .main-nav a {
     color: var(--text-primary);
     transition: color 0.3s ease;
@@ -55,6 +70,21 @@ body {
 
 .main-nav a:hover {
     color: var(--accent-color);
+}
+
+.page-link {
+    color: var(--text-primary) !important;
+    transition: color 0.3s ease;
+}
+
+.page-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.site-nav {
+    background-color: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .logo a {
@@ -66,12 +96,13 @@ body {
     background: var(--bg-secondary);
     border: 2px solid var(--border-color);
     border-radius: 20px;
-    padding: 5px 8px;
+    padding: 4px 8px;
     cursor: pointer;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 4px;
     transition: all 0.3s ease;
+    vertical-align: middle;
 }
 
 .theme-toggle:hover {
@@ -79,33 +110,47 @@ body {
     transform: scale(1.05);
 }
 
+.theme-toggle:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
 .theme-icon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     transition: all 0.3s ease;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    line-height: 1;
 }
 
 [data-theme="light"] #lightIcon {
     background-color: var(--accent-color);
+    transform: scale(1.1);
 }
 
 [data-theme="dark"] #darkIcon {
     background-color: var(--accent-color);
+    transform: scale(1.1);
 }
 
 [data-theme="light"] #darkIcon,
 [data-theme="dark"] #lightIcon {
-    opacity: 0.5;
+    opacity: 0.4;
+    transform: scale(0.9);
 }
 
 /* Main Content */
 .main-content {
     background-color: var(--bg-primary);
+}
+
+.page-content {
+    background-color: var(--bg-primary);
+    transition: background-color 0.3s ease;
 }
 
 /* Cards and Sections */
