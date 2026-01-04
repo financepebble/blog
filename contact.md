@@ -4,7 +4,27 @@ title: Contact
 permalink: /contact/
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+}
+
+.info-box {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-left: 4px solid #1e40af;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+</style>
 
 # Get In Touch
 

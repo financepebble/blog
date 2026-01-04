@@ -4,6 +4,45 @@ title: Financial News
 permalink: /market-news/
 ---
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #fafafa;
+    color: #1a1a1a;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+    color: #1a1a1a;
+}
+
+.btn {
+    background: #1e40af;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #1e3a8a;
+    transform: translateY(-2px);
+}
+
+.info-box {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-left: 4px solid #1e40af;
+    padding: 2rem;
+    border-radius: 12px;
+    margin: 2rem 0;
+}
+</style>
+
 # Financial News & Market Data
 
 Stay updated with the latest in retirement planning, personal finance, and tax strategies.
