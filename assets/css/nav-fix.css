@@ -27,14 +27,15 @@
     gap: 0 !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
+    align-items: center !important;
 }
 
 .site-nav-in-banner .page-link {
     display: inline-block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    padding: 0.75rem 1.25rem !important;
-    color: rgba(255, 255, 255, 0.95) !important;
+    padding: 0.75rem 1rem !important;
+    color: #fef3c7 !important; /* Bright yellowish-cream color */
     text-decoration: none !important;
     font-weight: 500 !important;
     font-size: 0.95rem !important;
@@ -42,12 +43,30 @@
     transition: all 0.3s !important;
     background: transparent !important;
     border-radius: 8px !important;
+    position: relative !important;
+}
+
+/* Add pipe delimiter after each link (except the last one) */
+.site-nav-in-banner .page-link:not(:last-child)::after {
+    content: '|';
+    position: absolute;
+    right: -0.5rem;
+    color: rgba(254, 243, 199, 0.4); /* Semi-transparent yellowish */
+    font-weight: 300;
 }
 
 .site-nav-in-banner .page-link:hover {
-    color: white !important;
+    color: #fef9e7 !important; /* Even brighter on hover */
     background: rgba(255, 255, 255, 0.15) !important;
-    border-bottom-color: white !important;
+    border-bottom-color: #fef3c7 !important;
+    transform: translateY(-2px);
+}
+
+/* Active/current page styling */
+.site-nav-in-banner .page-link.current {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-bottom-color: #fef3c7 !important;
 }
 
 /* Responsive navigation */
@@ -55,11 +74,17 @@
     .site-nav-in-banner .trigger {
         flex-direction: column !important;
         align-items: stretch !important;
+        gap: 0.5rem !important;
     }
     
     .site-nav-in-banner .page-link {
         text-align: center !important;
         padding: 0.75rem 1rem !important;
+    }
+    
+    /* Hide pipe delimiters on mobile */
+    .site-nav-in-banner .page-link::after {
+        display: none !important;
     }
 }
 
@@ -74,4 +99,5 @@ header.site-header nav.site-nav-in-banner div.trigger {
 
 header.site-header nav.site-nav-in-banner div.trigger a.page-link {
     display: inline-block !important;
+    color: #fef3c7 !important;
 }
