@@ -28,22 +28,52 @@
       </button>
     </div>
 
-    <!-- Navigation inside the blue banner -->
-    <nav class="site-nav-in-banner">
-      <div class="trigger">
-        <a class="page-link" href="{{ '/' | relative_url }}">Home</a>
-        <a class="page-link" href="{{ '/about/' | relative_url }}">About</a>
-        <a class="page-link" href="{{ '/retirement/' | relative_url }}">Retirement</a>
-        <a class="page-link" href="{{ '/tax-tips/' | relative_url }}">Tax Tips</a>
-        <a class="page-link" href="{{ '/credit-cards/' | relative_url }}">Credit Cards</a>
-        <a class="page-link" href="{{ '/deals/' | relative_url }}">Deals</a>
-        <a class="page-link" href="{{ '/travel/' | relative_url }}">Travel</a>
-        <a class="page-link" href="{{ '/market-news/' | relative_url }}">News</a>
-        <a class="page-link" href="{{ '/contact/' | relative_url }}">Contact</a>
+    <!-- Navigation inside the blue banner with inline styles -->
+    <nav class="site-nav-in-banner" style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 1rem; margin-top: 1rem;">
+      <div class="trigger" style="display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: wrap;">
+        <a class="page-link" href="{{ '/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Home</a>
+        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        
+        <a class="page-link" href="{{ '/about/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">About</a>
+        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        
+        <a class="page-link" href="{{ '/retirement/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Retirement</a>
+        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        
+        <a class="page-link" href="{{ '/tax-tips/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Tax Tips</a>
+        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        
+        <a class="page-link" href="{{ '/credit-cards/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Credit Cards</a>
+        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        
+        <a class="page-link" href="{{ '/deals/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Deals</a>
+        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        
+        <a class="page-link" href="{{ '/travel/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Travel</a>
+        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        
+        <a class="page-link" href="{{ '/market-news/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">News</a>
+        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        
+        <a class="page-link" href="{{ '/contact/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Contact</a>
       </div>
     </nav>
   </div>
 </header>
+
+<style>
+/* Backup CSS for navigation */
+.site-nav-in-banner .page-link {
+    color: #fef3c7 !important;
+}
+
+.site-nav-in-banner .page-link:hover {
+    color: #fef9e7 !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px;
+    transform: translateY(-2px);
+}
+</style>
 
 <script>
   // Dark Mode Toggle Script
