@@ -137,7 +137,7 @@ body {
 }
 
 /* ============================================
-   NAVIGATION - WHITE/DARK STICKY BAR
+   NAVIGATION - FORCE VISIBLE
    ============================================ */
 .site-nav {
     background: var(--card-bg);
@@ -150,14 +150,33 @@ body {
     transition: background-color 0.3s;
 }
 
+/* CRITICAL: Force navigation to always show */
+.site-nav .nav-trigger {
+    display: none !important;
+}
+
+.site-nav label[for="nav-trigger"] {
+    display: none !important;
+}
+
 .site-nav .trigger {
     display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    position: static !important;
+    clip: auto !important;
+    clip-path: none !important;
     gap: 0;
     flex-wrap: wrap;
 }
 
 .site-nav .page-link {
     display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
     padding: 1.25rem 1.5rem;
     color: var(--text-primary) !important;
     text-decoration: none;
@@ -174,13 +193,26 @@ body {
     background: rgba(30, 64, 175, 0.05);
 }
 
-/* Make sure nav-trigger doesn't hide navigation */
-.nav-trigger {
-    display: none !important;
+/* Override any Jekyll/Minima theme defaults that might hide nav */
+@media screen {
+    .site-nav .trigger {
+        display: flex !important;
+        clear: none !important;
+    }
 }
 
-.nav-trigger ~ .trigger {
-    display: flex !important;
+@media screen and (min-width: 600px) {
+    .site-nav .trigger {
+        display: flex !important;
+    }
+    
+    .site-nav label[for="nav-trigger"] {
+        display: none !important;
+    }
+    
+    .site-nav .menu-icon {
+        display: none !important;
+    }
 }
 
 /* ============================================
@@ -755,6 +787,12 @@ pre code {
     }
     
     .newsletter-form {
+        flex-direction: column;
+    }
+    
+    /* Still force nav to show on mobile */
+    .site-nav .trigger {
+        display: flex !important;
         flex-direction: column;
     }
 }
