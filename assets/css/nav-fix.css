@@ -1,0 +1,122 @@
+/* ============================================
+   NAVIGATION FIX - LOAD THIS AFTER ALL OTHER CSS
+   ============================================
+   
+   Add to your HTML head AFTER custom.css:
+   <link rel="stylesheet" href="{{ '/assets/css/nav-fix.css' | relative_url }}">
+*/
+
+/* Nuclear option: Force all navigation elements visible */
+.site-nav,
+.site-nav *,
+nav.site-nav,
+header nav {
+    visibility: visible !important;
+}
+
+.site-nav {
+    display: block !important;
+    background: white !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08) !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1000 !important;
+    margin-top: 2rem !important;
+}
+
+[data-theme="dark"] .site-nav {
+    background: #2d2d2d !important;
+}
+
+.site-nav .trigger {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    height: auto !important;
+    max-height: 999999px !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+    transform: none !important;
+    gap: 0 !important;
+    flex-wrap: wrap !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+}
+
+.site-nav .page-link {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    padding: 1.25rem 1.5rem !important;
+    color: #1a1a1a !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    border-bottom: 3px solid transparent !important;
+    transition: all 0.3s !important;
+    float: none !important;
+    clear: none !important;
+}
+
+[data-theme="dark"] .site-nav .page-link {
+    color: #e5e5e5 !important;
+}
+
+.site-nav .page-link:hover {
+    color: #1e40af !important;
+    border-bottom-color: #1e40af !important;
+    background: rgba(30, 64, 175, 0.05) !important;
+}
+
+/* Completely hide mobile menu elements */
+.site-nav input,
+.site-nav input[type="checkbox"],
+.site-nav .nav-trigger,
+.site-nav label[for="nav-trigger"],
+.site-nav .menu-icon {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* Override any @media queries that might hide nav */
+@media screen and (max-width: 600px) {
+    .site-nav .trigger {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    
+    .site-nav label[for="nav-trigger"] {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .site-nav .trigger {
+        display: flex !important;
+        flex-direction: row !important;
+    }
+}
+
+/* Additional specificity overrides */
+header.site-header nav.site-nav div.trigger {
+    display: flex !important;
+}
+
+header.site-header nav.site-nav div.trigger a.page-link {
+    display: inline-block !important;
+}
