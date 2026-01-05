@@ -1,0 +1,267 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+
+<article class="post-article">
+  <header class="post-header">
+    <div class="post-category-date">
+      {% if page.categories %}
+        {% for category in page.categories %}
+          <span class="category-badge">{{ category }}</span>
+        {% endfor %}
+      {% endif %}
+      <time class="post-date" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %-d, %Y" }}
+      </time>
+    </div>
+    
+    <h1 class="post-title-main">{{ page.title | escape }}</h1>
+    
+    {% if page.subtitle %}
+      <p class="post-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+    
+    {% if page.author %}
+      <p class="post-author">By {{ page.author }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags %}
+    <div class="post-tags">
+      <strong>Tags:</strong>
+      {% for tag in page.tags %}
+        <span class="tag-pill">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <footer class="post-footer">
+    <div class="post-navigation">
+      {% if page.previous.url %}
+        <a href="{{ page.previous.url | relative_url }}" class="nav-previous">
+          <span class="nav-label">← Previous Post</span>
+          <span class="nav-title">{{ page.previous.title }}</span>
+        </a>
+      {% endif %}
+      
+      {% if page.next.url %}
+        <a href="{{ page.next.url | relative_url }}" class="nav-next">
+          <span class="nav-label">Next Post →</span>
+          <span class="nav-title">{{ page.next.title }}</span>
+        </a>
+      {% endif %}
+    </div>
+
+    <div class="back-to-home">
+      <a href="{{ '/' | relative_url }}" class="btn">← Back to Home</a>
+    </div>
+  </footer>
+</article>
+
+<style>
+/* Post Article Styling */
+.post-article {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.post-header {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.post-category-date {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.post-date {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.post-title-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+}
+
+.post-subtitle {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+.post-author {
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+.post-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+.post-content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+}
+
+.post-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.post-content p {
+  margin-bottom: 1.5rem;
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.post-content li {
+  margin-bottom: 0.75rem;
+}
+
+.post-content blockquote {
+  border-left: 4px solid #1e40af;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--text-secondary);
+  background: var(--bg-primary);
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.post-tags {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.tag-pill {
+  display: inline-block;
+  background: #eff6ff;
+  color: #1e40af;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+[data-theme="dark"] .tag-pill {
+  background: rgba(30, 64, 175, 0.2);
+  color: #60a5fa;
+}
+
+.post-footer {
+  margin-top: 4rem;
+}
+
+.post-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.nav-previous,
+.nav-next {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  background: var(--bg-primary);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: 2px solid var(--border-color);
+}
+
+.nav-previous:hover,
+.nav-next:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border-color: #1e40af;
+}
+
+.nav-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-title {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.nav-next {
+  text-align: right;
+}
+
+.back-to-home {
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .post-article {
+    padding: 2rem 1.5rem;
+  }
+  
+  .post-title-main {
+    font-size: 2rem;
+  }
+  
+  .post-navigation {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-next {
+    text-align: left;
+  }
+  
+  .post-content {
+    font-size: 1rem;
+  }
+}
+</style>
