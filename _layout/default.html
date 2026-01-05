@@ -1,22 +1,20 @@
 <!DOCTYPE html>
-<html data-theme="light" lang="{{ page.lang | default: site.lang | default: "en" }}">
+<html lang="{{ page.lang | default: site.lang | default: "en" }}" data-theme="light">
 
-  {%- include head.html -%}
-  <link rel="stylesheet" href="{{ '/assets/css/dark-mode.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/nav-fix.css' | relative_url }}">
-  <body>
+{%- include head.html -%}
 
-    {%- include header.html -%}
+<body>
 
-    <main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        {{ content }}
-      </div>
-    </main>
+{%- include header.html -%}
 
-    {%- include footer.html -%}
-    <script src="{{ '/assets/js/dark-mode.js' | relative_url }}"></script>
-  </body>
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    {{ content }}
+  </div>
+</main>
+
+{%- include footer.html -%}
+
+</body>
 
 </html>
