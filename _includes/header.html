@@ -1,6 +1,6 @@
 <header class="site-header" role="banner">
   <div class="wrapper">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
       <div style="display: flex; align-items: center; gap: 1rem;">
         <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -27,21 +27,22 @@
         <span id="theme-icon">🌙</span>
       </button>
     </div>
-  </div>
 
-  <nav class="site-nav">
-    <div class="trigger">
-      <a class="page-link" href="{{ '/' | relative_url }}">Home</a>
-      <a class="page-link" href="{{ '/about/' | relative_url }}">About FinancePebble</a>
-      <a class="page-link" href="{{ '/retirement/' | relative_url }}">Early Retirement</a>
-      <a class="page-link" href="{{ '/tax-tips/' | relative_url }}">Tax Strategies & Tips</a>
-      <a class="page-link" href="{{ '/credit-cards/' | relative_url }}">Credit Card Rewards & Sign-Up Bonuses</a>
-      <a class="page-link" href="{{ '/deals/' | relative_url }}">Fantastic Deals & Discounts</a>
-      <a class="page-link" href="{{ '/travel/' | relative_url }}">Classic Travel Destinations</a>
-      <a class="page-link" href="{{ '/market-news/' | relative_url }}">Financial News</a>
-      <a class="page-link" href="{{ '/contact/' | relative_url }}">Contact</a>
-    </div>
-  </nav>
+    <!-- Navigation inside the blue banner -->
+    <nav class="site-nav-in-banner">
+      <div class="trigger">
+        <a class="page-link" href="{{ '/' | relative_url }}">Home</a>
+        <a class="page-link" href="{{ '/about/' | relative_url }}">About</a>
+        <a class="page-link" href="{{ '/retirement/' | relative_url }}">Retirement</a>
+        <a class="page-link" href="{{ '/tax-tips/' | relative_url }}">Tax Tips</a>
+        <a class="page-link" href="{{ '/credit-cards/' | relative_url }}">Credit Cards</a>
+        <a class="page-link" href="{{ '/deals/' | relative_url }}">Deals</a>
+        <a class="page-link" href="{{ '/travel/' | relative_url }}">Travel</a>
+        <a class="page-link" href="{{ '/market-news/' | relative_url }}">News</a>
+        <a class="page-link" href="{{ '/contact/' | relative_url }}">Contact</a>
+      </div>
+    </nav>
+  </div>
 </header>
 
 <script>
