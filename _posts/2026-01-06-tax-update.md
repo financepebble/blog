@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "The Average Joe’s Guide to 2026 Taxes: What’s New for Your Paycheck"
+title: "2026 Taxes: What’s New for Your Paycheck"
 date: 2026-01-06
 categories: [Taxes, Personal Finance, 2026 Updates]
 tags: [IRS, tax brackets, 401k, standard deduction]
-author: "Average Joe"
+author: "FinacePebble Team"
 ---
 
-If you felt like 2025 was a blur, get ready: the IRS has already released the numbers for 2026, and there are some critical changes that will directly affect your take-home pay and savings strategy. For the "average Joe" trying to save for retirement or just keep more of their paycheck, the story this year is inflation adjustment.
+If you felt like 2025 was a blur, get ready: the IRS has already released the numbers for 2026, and there are some critical changes that will directly affect your take-home pay and savings strategy. Whether you are  trying to save for retirement or just keep more of your paycheck, the story this year is inflation adjustment.
 
 While we aren't seeing a massive overhaul of the tax code just yet (though expiration of the 2017 tax cuts looms on the horizon), the inflation bumps for 2026 are significant. The standard deduction is up, allowing you to earn more tax-free, and retirement contribution limits have increased, giving you more room to stash cash for the future.
 
@@ -63,4 +63,4 @@ For example, a single filer in 2025 hit the 22% tax bracket once they earned ove
 3.  **Don't panic about 2017 tax cut expirations yet:** There is a lot of talk about the "TCJA" expiring after 2025. While that is true, Congress will likely debate extensions throughout 2026. For now, plan based on the numbers we know—which are the ones in the tables above.
 
 ***
-*Disclaimer: I am an Average Joe blogger, not a CPA. These numbers are based on IRS inflation adjustments released for the 2026 tax year. Always consult a tax professional for your specific situation.*
+*Disclaimer: I am not a CPA. These numbers are based on IRS inflation adjustments released for the 2026 tax year. Always consult a tax professional for your specific situation.*
