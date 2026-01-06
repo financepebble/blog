@@ -7,41 +7,6 @@ author: FinancePebble
 excerpt: "Even though 2025 has ended, strategic moves in early 2026 can still reduce your tax liability. Discover actionable steps you can take right now."
 ---
 
-<style>
-.tax-tip-box {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 20px 0;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.strategy-card {
-  background: #f8f9fa;
-  border-left: 4px solid #667eea;
-  padding: 15px 20px;
-  margin: 15px 0;
-  border-radius: 8px;
-}
-
-.deadline-alert {
-  background: #fff3cd;
-  border: 2px solid #ffc107;
-  padding: 15px;
-  border-radius: 8px;
-  margin: 20px 0;
-  font-weight: 500;
-}
-
-.icon {
-  display: inline-block;
-  margin-right: 8px;
-}
-</style>
-
-# Last-Minute Tax Strategies: Reducing Your 2025 Tax Burden in Early 2026
-
 <div class="deadline-alert">
 ⏰ <strong>Time-Sensitive:</strong> Most 2025 tax reduction strategies have passed, but several opportunities remain available through April 15, 2026.
 </div>
@@ -60,7 +25,7 @@ Traditional IRA contributions remain the most powerful tax-reduction tool availa
 ## Health Savings Account (HSA) Catch-Up
 
 <div class="strategy-card">
-<span class="icon">🏥</span> <strong>HSA Deadline: April 15, 2026</strong><br>
+<span class="icon">🥼</span> <strong>HSA Deadline: April 15, 2026</strong><br>
 Contribute up to $4,150 (individual) or $8,300 (family) to your HSA for 2025. These contributions are tax-deductible and grow tax-free.
 </div>
 
@@ -115,3 +80,47 @@ Remember: tax planning is year-round, not year-end. The strategies you implement
 ---
 
 *Disclaimer: This article provides general information and should not be considered professional tax advice. Consult with a qualified tax professional regarding your specific situation.*
+
+<style>
+.tax-tip-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.strategy-card {
+  background: #f8f9fa;
+  border-left: 4px solid #667eea;
+  padding: 15px 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+}
+
+[data-theme="dark"] .strategy-card {
+  background: #2d3748;
+  border-left-color: #9f7aea;
+}
+
+.deadline-alert {
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  font-weight: 500;
+}
+
+[data-theme="dark"] .deadline-alert {
+  background: #4a4013;
+  border-color: #d97706;
+  color: #fef3c7;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: 8px;
+}
+</style>
