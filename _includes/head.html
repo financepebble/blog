@@ -1,0 +1,177 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  
+  <!-- Custom CSS for header styling -->
+  <style>
+    /* CSS Variables for theming */
+    :root {
+      --primary-blue: #1e40af;
+      --primary-blue-dark: #1e3a8a;
+      --text-primary: #2d3e50;
+      --text-secondary: #64748b;
+      --text-muted: #94a3b8;
+      --bg-primary: #f8fafc;
+      --card-bg: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="dark"] {
+      --text-primary: #e2e8f0;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --bg-primary: #1e293b;
+      --card-bg: #334155;
+      --border-color: #475569;
+      --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+
+    body {
+      font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* CRITICAL: Blue Header Styling */
+    .site-header {
+      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+      padding: 1.5rem 0;
+      box-shadow: 0 4px 20px rgba(30, 64, 175, 0.15);
+      position: relative;
+      width: 100%;
+    }
+
+    .site-header .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .site-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: white !important;
+      text-decoration: none;
+      line-height: 1.2;
+      transition: opacity 0.3s;
+    }
+
+    .site-title:hover {
+      opacity: 0.9;
+    }
+
+    .site-tagline {
+      display: block;
+      color: #fef3c7;
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-top: 0.25rem;
+    }
+
+    /* Dark Mode Toggle */
+    .dark-mode-toggle-header {
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.5rem;
+    }
+
+    .dark-mode-toggle-header:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+
+    /* Navigation Styling */
+    .site-nav-in-banner {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    .site-nav-in-banner .trigger {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      flex-wrap: wrap;
+    }
+
+    .site-nav-in-banner .page-link {
+      color: #fef3c7 !important;
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .site-nav-in-banner .page-link:hover {
+      color: #fef9e7 !important;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 8px;
+      transform: translateY(-2px);
+    }
+
+    /* Main content wrapper */
+    .page-content {
+      padding: 3rem 0;
+      min-height: calc(100vh - 400px);
+    }
+
+    .wrapper {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .site-header .wrapper {
+        padding: 0 1rem;
+      }
+
+      .site-title {
+        font-size: 1.75rem;
+      }
+
+      .site-tagline {
+        font-size: 0.85rem;
+      }
+
+      .site-nav-in-banner .page-link {
+        font-size: 0.85rem;
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  </style>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+  
+  <!-- RSS Feed -->
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ '/feed.xml' | relative_url }}">
+</head>
