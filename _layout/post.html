@@ -2,8 +2,6 @@
 layout: default
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-
 <article class="post-article">
   <header class="post-header">
     <div class="post-category-date">
@@ -89,6 +87,18 @@ layout: default
   flex-wrap: wrap;
 }
 
+.category-badge {
+  display: inline-block;
+  background: #1e40af;
+  color: white;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .post-date {
   color: var(--text-muted);
   font-size: 0.95rem;
@@ -120,6 +130,13 @@ layout: default
   font-size: 1.1rem;
   line-height: 1.8;
   color: var(--text-primary);
+}
+
+.post-content h1 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
 }
 
 .post-content h2 {
@@ -167,6 +184,11 @@ layout: default
   border-radius: 8px;
 }
 
+.post-content strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 .post-tags {
   margin-top: 3rem;
   padding-top: 2rem;
@@ -187,6 +209,11 @@ layout: default
 [data-theme="dark"] .tag-pill {
   background: rgba(30, 64, 175, 0.2);
   color: #60a5fa;
+}
+
+[data-theme="dark"] .category-badge {
+  background: #60a5fa;
+  color: #1e293b;
 }
 
 .post-footer {
@@ -242,6 +269,23 @@ layout: default
   text-align: center;
 }
 
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #1e40af;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .post-article {
@@ -262,6 +306,14 @@ layout: default
   
   .post-content {
     font-size: 1rem;
+  }
+  
+  .post-content h1 {
+    font-size: 1.75rem;
+  }
+  
+  .post-content h2 {
+    font-size: 1.5rem;
   }
 }
 </style>
