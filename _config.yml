@@ -11,8 +11,6 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Google Analytics
-google_analytics: G-VZEWLWR56S
 
 # Navigation
 header_pages:
