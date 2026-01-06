@@ -22,58 +22,211 @@
         </div>
       </div>
       
-      <!-- Dark Mode Toggle in Header -->
-      <button class="dark-mode-toggle-header" onclick="toggleDarkMode()" aria-label="Toggle dark mode" title="Toggle dark/light mode">
-        <span id="theme-icon">🌙</span>
-      </button>
+      <div style="display: flex; gap: 1rem; align-items: center;">
+        <!-- Dark Mode Toggle in Header -->
+        <button class="dark-mode-toggle-header" onclick="toggleDarkMode()" aria-label="Toggle dark mode" title="Toggle dark/light mode">
+          <span id="theme-icon">🌙</span>
+        </button>
+        
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button class="hamburger-menu" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
 
-    <!-- Navigation inside the blue banner with inline styles -->
-    <nav class="site-nav-in-banner" style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 1rem; margin-top: 1rem;">
-      <div class="trigger" style="display: flex; justify-content: center; align-items: center; gap: 0; flex-wrap: wrap;">
-        <a class="page-link" href="{{ '/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Home</a>
-        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+    <!-- Navigation inside the blue banner -->
+    <nav class="site-nav-in-banner" id="main-nav">
+      <div class="trigger">
+        <a class="page-link" href="{{ '/' | relative_url }}">Home</a>
+        <span class="nav-separator">|</span>
         
-        <a class="page-link" href="{{ '/about/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">About</a>
-        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        <a class="page-link" href="{{ '/about/' | relative_url }}">About</a>
+        <span class="nav-separator">|</span>
         
-        <a class="page-link" href="{{ '/retirement/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Retirement</a>
-        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        <a class="page-link" href="{{ '/retirement/' | relative_url }}">Retirement</a>
+        <span class="nav-separator">|</span>
         
-        <a class="page-link" href="{{ '/tax-tips/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Tax Tips</a>
-        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        <a class="page-link" href="{{ '/tax-tips/' | relative_url }}">Tax Tips</a>
+        <span class="nav-separator">|</span>
         
-        <a class="page-link" href="{{ '/credit-cards/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Credit Cards</a>
-        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        <a class="page-link" href="{{ '/credit-cards/' | relative_url }}">Credit Cards</a>
+        <span class="nav-separator">|</span>
         
-        <a class="page-link" href="{{ '/deals/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Deals</a>
-        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        <a class="page-link" href="{{ '/deals/' | relative_url }}">Deals</a>
+        <span class="nav-separator">|</span>
         
-        <a class="page-link" href="{{ '/travel/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Travel</a>
-        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        <a class="page-link" href="{{ '/travel/' | relative_url }}">Travel</a>
+        <span class="nav-separator">|</span>
         
-        <a class="page-link" href="{{ '/market-news/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">News</a>
-        <span style="color: rgba(254, 243, 199, 0.4); padding: 0 0.5rem;">|</span>
+        <a class="page-link" href="{{ '/market-news/' | relative_url }}">News</a>
+        <span class="nav-separator">|</span>
         
-        <a class="page-link" href="{{ '/contact/' | relative_url }}" style="color: #fef3c7 !important; padding: 0.75rem 1rem; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.3s;">Contact</a>
+        <a class="page-link" href="{{ '/contact/' | relative_url }}">Contact</a>
       </div>
     </nav>
   </div>
 </header>
 
 <style>
-/* Backup CSS for navigation */
+/* Navigation Base Styles */
+.site-nav-in-banner {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.site-nav-in-banner .trigger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
 .site-nav-in-banner .page-link {
-    color: #fef3c7 !important;
+  color: #fef3c7 !important;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.3s;
 }
 
 .site-nav-in-banner .page-link:hover {
-    color: #fef9e7 !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+  color: #fef9e7 !important;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  transform: translateY(-2px);
+}
+
+.nav-separator {
+  color: rgba(254, 243, 199, 0.4);
+  padding: 0 0.5rem;
+}
+
+/* Hamburger Menu - Hidden by default (desktop) */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 8px;
+  transition: all 0.3s;
+}
+
+.hamburger-menu span {
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.hamburger-menu:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hamburger Animation when active */
+.hamburger-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  /* Show hamburger menu on mobile */
+  .hamburger-menu {
+    display: flex;
+  }
+  
+  /* Hide separators on mobile */
+  .nav-separator {
+    display: none;
+  }
+  
+  /* Mobile navigation */
+  .site-nav-in-banner {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
+    border-top: none;
+    margin-top: 0;
+  }
+  
+  .site-nav-in-banner.active {
+    max-height: 600px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+  
+  .site-nav-in-banner .trigger {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  
+  .site-nav-in-banner .page-link {
+    padding: 1rem;
+    text-align: center;
     border-radius: 8px;
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .site-nav-in-banner .page-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: none;
+  }
+  
+  /* Adjust logo and title for mobile */
+  .site-header svg {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .site-title {
+    font-size: 1.5rem !important;
+  }
+  
+  .site-tagline {
+    font-size: 0.75rem;
+  }
+  
+  .dark-mode-toggle-header {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .site-nav-in-banner .page-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .nav-separator {
+    padding: 0 0.25rem;
+  }
 }
 </style>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VZEWLWR56S"></script>
 <script>
@@ -83,6 +236,7 @@
 
   gtag('config', 'G-VZEWLWR56S');
 </script>
+
 <script>
   // Dark Mode Toggle Script
   function toggleDarkMode() {
@@ -111,4 +265,28 @@
       icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
     }
   })();
+  
+  // Mobile Menu Toggle Script
+  function toggleMobileMenu() {
+    const nav = document.getElementById('main-nav');
+    const hamburger = document.querySelector('.hamburger-menu');
+    
+    nav.classList.toggle('active');
+    hamburger.classList.toggle('active');
+  }
+  
+  // Close mobile menu when clicking a link
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.site-nav-in-banner .page-link');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+          const nav = document.getElementById('main-nav');
+          const hamburger = document.querySelector('.hamburger-menu');
+          nav.classList.remove('active');
+          hamburger.classList.remove('active');
+        }
+      });
+    });
+  });
 </script>
