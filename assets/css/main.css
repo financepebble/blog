@@ -1,0 +1,106 @@
+/* FinancePebble Main Stylesheet */
+
+/* Additional utility styles */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #1e40af;
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+/* Links */
+a {
+  color: #1e40af;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #1e3a8a;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Footer styling (if needed) */
+.site-footer {
+  background: #1e293b;
+  color: #cbd5e1;
+  padding: 3rem 0 2rem;
+  margin-top: 4rem;
+}
+
+.site-footer a {
+  color: #60a5fa;
+}
+
+.site-footer a:hover {
+  color: #93c5fd;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Code blocks */
+pre, code {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.2rem 0.4rem;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+pre {
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+pre code {
+  border: none;
+  padding: 0;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+th, td {
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+  text-align: left;
+}
+
+th {
+  background: var(--bg-primary);
+  font-weight: 600;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid #1e40af;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--text-secondary);
+}
