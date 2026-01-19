@@ -3,35 +3,8 @@
 
   <div class="wrapper">
     
-    <!-- Main Footer Content -->
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">{{ site.author | escape }}</li>
-          <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {%- if site.twitter_username -%}
-          <li>
-            <a href="https://twitter.com/{{ site.twitter_username | cgi_escape | escape }}">
-              <svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#twitter' | relative_url }}"></use></svg>
-              <span class="username">{{ site.twitter_username | escape }}</span>
-            </a>
-          </li>
-          {%- endif -%}
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-3">
-        <p>{{ site.description | escape }}</p>
-      </div>
-    </div>
-
     <!-- Legal Pages Links -->
-    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e8e8e8; text-align: center;">
+    <div style="padding: 2rem 0 1rem 0; border-top: 1px solid #e8e8e8; text-align: center;">
       <a href="{{ '/about/' | relative_url }}" style="margin: 0 0.75rem; color: #828282; text-decoration: none;">About</a>
       <span style="color: #e8e8e8;">|</span>
       <a href="{{ '/contact/' | relative_url }}" style="margin: 0 0.75rem; color: #828282; text-decoration: none;">Contact</a>
@@ -44,8 +17,8 @@
     </div>
 
     <!-- Copyright -->
-    <div style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #828282;">
-      &copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.
+    <div style="text-align: center; padding-bottom: 2rem; font-size: 0.875rem; color: #828282;">
+      &copy; {{ 'now' | date: "%Y" }} FinancePebble. All rights reserved.
     </div>
 
   </div>
