@@ -6,8 +6,6 @@ permalink: /privacy-policy/
 
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
-# Privacy Policy
-
 **Last Updated: January 19, 2026**
 
 ## What We Collect

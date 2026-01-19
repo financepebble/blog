@@ -6,8 +6,6 @@ permalink: /affiliate-disclosure/
 
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
-# Affiliate Disclosure
-
 ## How It Works
 
 FinancePebble participates in affiliate programs. When you click certain links and make a purchase, we may earn a commission **at no extra cost to you**.

@@ -6,8 +6,6 @@ permalink: /terms-of-service/
 
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
-# Terms of Service
-
 **Last Updated: January 19, 2026**
 
 By using FinancePebble.com, you agree to these terms.
