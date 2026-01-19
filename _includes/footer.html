@@ -2,45 +2,49 @@
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
+    
+    <!-- Main Footer Content -->
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">
-            {%- if site.author -%}
-              {{ site.author | escape }}
-            {%- else -%}
-              {{ site.title | escape }}
-            {%- endif -%}
-          </li>
-          {%- if site.email -%}
+          <li class="p-name">{{ site.author | escape }}</li>
           <li><a class="u-email" href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-          {%- endif -%}
         </ul>
       </div>
 
       <div class="footer-col footer-col-2">
-        {%- include social.html -%}
+        <ul class="social-media-list">
+          {%- if site.twitter_username -%}
+          <li>
+            <a href="https://twitter.com/{{ site.twitter_username | cgi_escape | escape }}">
+              <svg class="svg-icon"><use xlink:href="{{ '/assets/minima-social-icons.svg#twitter' | relative_url }}"></use></svg>
+              <span class="username">{{ site.twitter_username | escape }}</span>
+            </a>
+          </li>
+          {%- endif -%}
+        </ul>
       </div>
 
       <div class="footer-col footer-col-3">
-        <p>{{- site.description | escape -}}</p>
+        <p>{{ site.description | escape }}</p>
       </div>
     </div>
 
     <!-- Legal Pages Links -->
-    <div class="footer-legal-links" style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e8e8e8; text-align: center;">
-      <a href="{{ '/about/' | relative_url }}" style="margin: 0 0.75rem; color: #828282;">About</a>
+    <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #e8e8e8; text-align: center;">
+      <a href="{{ '/about/' | relative_url }}" style="margin: 0 0.75rem; color: #828282; text-decoration: none;">About</a>
       <span style="color: #e8e8e8;">|</span>
-      <a href="{{ '/contact/' | relative_url }}" style="margin: 0 0.75rem; color: #828282;">Contact</a>
+      <a href="{{ '/contact/' | relative_url }}" style="margin: 0 0.75rem; color: #828282; text-decoration: none;">Contact</a>
       <span style="color: #e8e8e8;">|</span>
-      <a href="{{ '/privacy-policy/' | relative_url }}" style="margin: 0 0.75rem; color: #828282;">Privacy Policy</a>
+      <a href="{{ '/privacy-policy/' | relative_url }}" style="margin: 0 0.75rem; color: #828282; text-decoration: none;">Privacy Policy</a>
       <span style="color: #e8e8e8;">|</span>
-      <a href="{{ '/terms-of-service/' | relative_url }}" style="margin: 0 0.75rem; color: #828282;">Terms of Service</a>
+      <a href="{{ '/terms-of-service/' | relative_url }}" style="margin: 0 0.75rem; color: #828282; text-decoration: none;">Terms of Service</a>
       <span style="color: #e8e8e8;">|</span>
-      <a href="{{ '/affiliate-disclosure/' | relative_url }}" style="margin: 0 0.75rem; color: #828282;">Affiliate Disclosure</a>
+      <a href="{{ '/affiliate-disclosure/' | relative_url }}" style="margin: 0 0.75rem; color: #828282; text-decoration: none;">Affiliate Disclosure</a>
     </div>
 
-    <div style="text-align: center; margin-top: 1rem; font-size: 0.9em; color: #828282;">
+    <!-- Copyright -->
+    <div style="text-align: center; margin-top: 1rem; font-size: 0.875rem; color: #828282;">
       &copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.
     </div>
 
