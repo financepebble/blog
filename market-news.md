@@ -6,7 +6,6 @@ permalink: /market-news/
 
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
-# Financial News & Market Data
 
 Stay updated with the latest in retirement planning, personal finance, and tax strategies.
 

@@ -8,9 +8,8 @@ permalink: /contact/
 
 ## 📧 Email
 
-**[hello@financepebble.com](mailto:hello@financepebble.com)**
+**[financepebble101@gmail.com](mailto:financepebble@gmail.com)**
 
-We respond within 1-2 business days.
 
 ## What We Can Help With
 
