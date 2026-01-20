@@ -6,7 +6,6 @@ permalink: /about/
 
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
-# About FinancePebble
 
 Welcome to FinancePebble—your trusted portal for smart money decisions.
 
