@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Complete Beginner's Guide to Building Your Emergency Fund"
-date: 2026-01-11
+date: 2026-01-17
 categories: [finance]
 author: FinancePebble
 ---
