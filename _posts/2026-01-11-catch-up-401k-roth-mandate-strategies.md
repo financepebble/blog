@@ -1,4 +1,9 @@
-# The Catch-Up 401(k) Roth Bombshell: What High Earners Need to Know Now
+---
+layout: post
+title: "The Catch-Up 401(k) Roth Bombshell: What High Earners Need to Know Now"
+date: 2026-01-11
+categories: retirement taxes
+---
 
 *If you're 50+ and earning over $150,000, your retirement saving just got complicated—and more expensive*
 
