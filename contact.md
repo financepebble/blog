@@ -6,8 +6,6 @@ permalink: /contact/
 
 <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
 
-# Contact Us
-
 ## 📧 Email
 
 **[hello@financepebble.com](mailto:hello@financepebble.com)**
