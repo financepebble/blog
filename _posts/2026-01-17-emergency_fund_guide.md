@@ -1,4 +1,10 @@
-# The Complete Beginner's Guide to Building Your Emergency Fund
+---
+layout: post
+title: "The Complete Beginner's Guide to Building Your Emergency Fund"
+date: 2026-01-11
+categories: [finance]
+author: FinancePebble
+---
 
 **Your Financial Safety Net in an Uncertain World**
 
