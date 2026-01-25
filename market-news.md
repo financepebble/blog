@@ -23,65 +23,35 @@ Stay updated with the latest in retirement planning, personal finance, and tax s
 
 <script>
 // Diverse RSS feeds focused on retirement, personal finance, tax, and savings
-// Avoiding company-specific stock news
 const newsFeeds = {
   'retirement': [
-    'https://www.marketwatch.com/rss/realtimeheadlines',
     'https://finance.yahoo.com/news/rssindex',
-    'https://www.kiplinger.com/feeds/rss/retirement-planning',
-    'https://www.fool.com/feeds/index.aspx'
+    'https://www.marketwatch.com/rss/topstories'
   ],
   'personal-finance': [
-    'https://www.marketwatch.com/rss/realtimeheadlines',
     'https://finance.yahoo.com/news/rssindex',
-    'https://www.nerdwallet.com/blog/feed/',
-    'https://www.bankrate.com/feed/'
+    'https://www.marketwatch.com/rss/topstories'
   ],
   'tax': [
-    'https://www.marketwatch.com/rss/realtimeheadlines',
     'https://finance.yahoo.com/news/rssindex',
-    'https://www.kiplinger.com/feeds/rss/tax-planning'
+    'https://www.marketwatch.com/rss/topstories'
   ],
   'savings': [
-    'https://www.marketwatch.com/rss/realtimeheadlines',
     'https://finance.yahoo.com/news/rssindex',
-    'https://www.bankrate.com/feed/',
-    'https://www.nerdwallet.com/blog/feed/'
+    'https://www.marketwatch.com/rss/topstories'
   ]
 };
 
-// Keywords to filter content relevant to each category
+// Simplified keywords - more permissive
 const categoryKeywords = {
-  'retirement': [
-    'retirement', '401k', '401(k)', 'ira', 'roth', 'pension', 'social security',
-    'medicare', 'early retirement', 'retire', 'retiring', 'retiree', 'nest egg',
-    '403b', 'annuity', 'required minimum distribution', 'rmd', 'catch-up contribution'
-  ],
-  'personal-finance': [
-    'budget', 'debt', 'credit card', 'mortgage', 'loan', 'financial planning',
-    'estate planning', 'wealth', 'money management', 'financial advisor',
-    'net worth', 'emergency fund', 'financial goals', 'spending', 'income',
-    'financial health', 'credit score', 'bankruptcy', 'refinance'
-  ],
-  'tax': [
-    'tax', 'irs', 'deduction', 'tax credit', 'filing', 'refund', 'withholding',
-    'tax bracket', 'capital gains', 'tax law', 'tax reform', 'tax strategy',
-    'tax planning', 'tax season', 'standard deduction', 'itemized', 'tax break',
-    'tax rate', 'estate tax', 'gift tax', 'tax code'
-  ],
-  'savings': [
-    'savings', 'savings account', 'high-yield', 'interest rate', 'cd', 'certificate of deposit',
-    'money market', 'bank account', 'apy', 'fdic', 'online bank', 'savings rate',
-    'emergency savings', 'bank promotion', 'bonus', 'treasury', 'i bond', 'series i'
-  ]
+  'retirement': ['retire', '401', 'ira', 'pension', 'social security', 'medicare'],
+  'personal-finance': ['finance', 'money', 'budget', 'debt', 'save', 'spend', 'bank', 'loan'],
+  'tax': ['tax', 'irs', 'deduction', 'refund'],
+  'savings': ['saving', 'savings', 'interest', 'bank', 'deposit', 'yield']
 };
 
-// Keywords to EXCLUDE (company stocks, crypto, day trading)
-const excludeKeywords = [
-  'stock picks', 'buy this stock', 'stock alert', 'trading strategy',
-  'day trading', 'options trading', 'penny stock', 'cryptocurrency', 'crypto',
-  'bitcoin', 'ethereum', 'nft', 'forex', 'technical analysis', 'chart pattern'
-];
+// Only exclude obvious junk
+const excludeKeywords = ['crypto', 'bitcoin', 'ethereum', 'nft'];
 
 function highlightActiveButton(category) {
   // Reset all buttons
@@ -97,20 +67,25 @@ function highlightActiveButton(category) {
 
 function isRelevantToCategory(item, category) {
   const text = (item.title + ' ' + (item.description || '')).toLowerCase();
-  const keywords = categoryKeywords[category] || [];
   
-  // Check if article should be excluded
+  // Only exclude crypto/NFT stuff
   for (const exclude of excludeKeywords) {
-    if (text.includes(exclude.toLowerCase())) {
+    if (text.includes(exclude)) {
       return false;
     }
   }
   
-  // Check if article contains relevant keywords
+  // Be very permissive - if it has any keyword, include it
+  const keywords = categoryKeywords[category] || [];
   for (const keyword of keywords) {
-    if (text.includes(keyword.toLowerCase())) {
+    if (text.includes(keyword)) {
       return true;
     }
+  }
+  
+  // If we're looking at personal-finance, accept almost everything financial
+  if (category === 'personal-finance') {
+    return true; // Accept all financial news
   }
   
   return false;
@@ -124,28 +99,37 @@ async function loadNews(category) {
   
   const feeds = newsFeeds[category];
   let allItems = [];
+  let totalFetched = 0;
   
   for (const feedUrl of feeds) {
     try {
-      const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}&count=20`);
+      const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedUrl)}&count=30`);
       const data = await response.json();
       
       if (data.items && data.items.length > 0) {
-        // Filter items based on category keywords
-        const relevantItems = data.items.filter(item => isRelevantToCategory(item, category));
-        allItems = allItems.concat(relevantItems);
+        console.log(`Fetched ${data.items.length} items from ${feedUrl}`);
+        totalFetched += data.items.length;
+        allItems = allItems.concat(data.items);
       }
     } catch (error) {
-      console.log('Feed failed:', feedUrl);
+      console.log('Feed failed:', feedUrl, error);
     }
   }
   
-  if (allItems.length === 0) {
+  console.log(`Total items fetched: ${totalFetched}`);
+  console.log(`Before filtering: ${allItems.length} items`);
+  
+  // Filter items based on category keywords
+  const relevantItems = allItems.filter(item => isRelevantToCategory(item, category));
+  console.log(`After filtering for ${category}: ${relevantItems.length} items`);
+  
+  if (relevantItems.length === 0) {
     feedDiv.innerHTML = `
       <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; border-radius: 8px;">
         <p style="margin: 0; color: #92400e;">
           <strong>No recent articles found for this category.</strong><br>
-          Try another category or check back later. News sources may be temporarily unavailable.
+          Fetched ${totalFetched} articles total, but none matched the ${category} filters.<br>
+          Try another category or check back later.
         </p>
       </div>
     `;
@@ -156,7 +140,7 @@ async function loadNews(category) {
   const uniqueItems = [];
   const seenTitles = new Set();
   
-  for (const item of allItems) {
+  for (const item of relevantItems) {
     const normalizedTitle = item.title.toLowerCase().substring(0, 50);
     if (!seenTitles.has(normalizedTitle)) {
       seenTitles.add(normalizedTitle);
