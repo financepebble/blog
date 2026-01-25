@@ -15,162 +15,35 @@ Stay updated with the latest in retirement planning, personal finance, and tax s
 </div>
 
 <script>
-// Diverse news sources - major news outlets, magazines, newspapers
-const RSS_FEEDS = [
-  // Major news outlets
-  { url: 'https://www.cnbc.com/id/10000664/device/rss/rss.html', name: 'CNBC Personal Finance' },
-  { url: 'https://www.forbes.com/personal-finance/feed/', name: 'Forbes Personal Finance' },
-  { url: 'https://www.bloomberg.com/feed/podcast/etf-report.xml', name: 'Bloomberg' },
-  { url: 'https://www.marketwatch.com/rss/topstories', name: 'MarketWatch' },
-  
-  // Newspapers
-  { url: 'https://www.washingtonpost.com/arcio/rss/category/business/', name: 'Washington Post' },
-  
-  // Financial magazines & sites
-  { url: 'https://money.com/feed/', name: 'Money Magazine' },
-  { url: 'https://www.kiplinger.com/fronts/rss/all/index.rss', name: 'Kiplinger' },
-  { url: 'https://www.investopedia.com/feedbuilder/feed/getfeed?feedName=rss_headline', name: 'Investopedia' },
-  
-  // Banking sites
-  { url: 'https://www.bankrate.com/feed/', name: 'Bankrate' },
-  
-  // Consumer-focused
-  { url: 'https://www.consumerreports.org/rss/money.xml', name: 'Consumer Reports' },
-  
-  // MSN Money
-  { url: 'https://rss.msn.com/en-us/money', name: 'MSN Money' }
+// Using Google News RSS feeds which are more reliable
+const NEWS_FEEDS = [
+  'https://news.google.com/rss/search?q=retirement+planning+401k+IRA&hl=en-US&gl=US&ceid=US:en',
+  'https://news.google.com/rss/search?q=personal+finance+tax+savings&hl=en-US&gl=US&ceid=US:en',
+  'https://news.google.com/rss/search?q=social+security+medicare&hl=en-US&gl=US&ceid=US:en',
+  'https://news.google.com/rss/search?q=high+yield+savings+bank+rates&hl=en-US&gl=US&ceid=US:en'
 ];
 
-// Fallback curated content (used if RSS feeds fail)
-const FALLBACK_NEWS = [
-  {
-    title: "2026 Retirement Account Contribution Limits Increased",
-    description: "The IRS announced higher contribution limits for 401(k), IRA, and other retirement accounts for 2026. Workers under 50 can contribute up to $23,500 to 401(k) plans, while catch-up contributions for those 50+ increased to $7,500.",
-    link: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits",
-    pubDate: "2026-01-20",
-    source: "IRS"
-  },
-  {
-    title: "High-Yield Savings Accounts Still Offering Over 4% APY",
-    description: "Despite market volatility, several online banks continue offering competitive savings rates above 4% APY. Financial experts recommend comparing rates quarterly as the Fed evaluates monetary policy.",
-    link: "https://www.bankrate.com/banking/savings/rates/",
-    pubDate: "2026-01-18",
-    source: "Bankrate"
-  },
-  {
-    title: "Tax Brackets Adjusted for Inflation in 2026",
-    description: "The IRS released updated federal income tax brackets for 2026, with inflation adjustments benefiting most taxpayers. The standard deduction also increased to $16,100 for single filers and $32,200 for married couples filing jointly.",
-    link: "https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026",
-    pubDate: "2026-01-15",
-    source: "IRS"
-  },
-  {
-    title: "Social Security COLA Increase Takes Effect",
-    description: "Over 71 million Americans will see a cost-of-living adjustment in their Social Security benefits this year. Understanding how COLA affects retirement income is crucial for financial planning.",
-    link: "https://www.ssa.gov/cola/",
-    pubDate: "2026-01-12",
-    source: "Social Security Administration"
-  },
-  {
-    title: "Medicare Part B Premium Changes for 2026",
-    description: "The standard Medicare Part B premium has been announced for 2026. High-income beneficiaries should review IRMAA thresholds to understand their potential premium adjustments.",
-    link: "https://www.medicare.gov/your-medicare-costs/part-b-costs",
-    pubDate: "2026-01-10",
-    source: "Medicare.gov"
-  },
-  {
-    title: "Series I Bonds: Are They Still Worth Buying?",
-    description: "Treasury I Bonds continue to offer inflation protection with rates adjusting semi-annually. Financial planners weigh in on whether these securities still make sense for conservative investors.",
-    link: "https://www.treasurydirect.gov/savings-bonds/i-bonds/",
-    pubDate: "2026-01-08",
-    source: "TreasuryDirect"
-  },
-  {
-    title: "Health Savings Account Limits Rise for 2026",
-    description: "HSA contribution limits increased to $4,300 for individuals and $8,550 for families in 2026. These tax-advantaged accounts remain powerful tools for retirement healthcare planning.",
-    link: "https://www.irs.gov/publications/p969",
-    pubDate: "2026-01-05",
-    source: "IRS"
-  },
-  {
-    title: "Estate Tax Exemption Reaches $15 Million Per Person",
-    description: "The federal estate tax exemption continues climbing with inflation adjustments. Estate planning professionals recommend reviewing strategies given potential future tax law changes.",
-    link: "https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax",
-    pubDate: "2026-01-03",
-    source: "IRS"
-  },
-  {
-    title: "Credit Card Interest Rates Hit Record Highs",
-    description: "Average credit card APRs exceed 21%, prompting financial experts to recommend aggressive debt paydown strategies including balance transfers and the avalanche method.",
-    link: "https://www.nerdwallet.com/article/credit-cards/credit-card-interest-rate",
-    pubDate: "2025-12-28",
-    source: "NerdWallet"
-  },
-  {
-    title: "Required Minimum Distribution Rules Updated",
-    description: "New RMD regulations affect retirees with traditional IRAs and 401(k)s. Understanding when withdrawals must begin is critical to avoid hefty IRS penalties.",
-    link: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-required-minimum-distributions-rmds",
-    pubDate: "2025-12-22",
-    source: "IRS"
-  },
-  {
-    title: "Bank Account Bonuses: Top Offers for Early 2026",
-    description: "Major banks are offering cash bonuses ranging from $200 to $500 for new checking and savings accounts. Compare requirements carefully before opening accounts solely for bonuses.",
-    link: "https://www.bankrate.com/banking/bank-promotions/",
-    pubDate: "2025-12-20",
-    source: "Bankrate"
-  },
-  {
-    title: "Enhanced Catch-Up Contributions for Ages 60-63",
-    description: "Workers aged 60-63 can now make super catch-up contributions to 401(k) plans up to $11,250 for 2026, significantly boosting late-career retirement savings potential.",
-    link: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-catch-up-contributions",
-    pubDate: "2025-12-15",
-    source: "IRS"
-  }
-];
-
-async function fetchRSSFeed(feedObj) {
-  const { url, name } = feedObj;
-  
+async function fetchGoogleNewsRSS(url) {
   try {
-    // Use rss2json API - more reliable than CORS proxies
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}&api_key=YOUR_API_KEY&count=15`;
+    // Use rss2json API without key (limited but works)
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}`;
     
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
-    
-    const response = await fetch(apiUrl, { signal: controller.signal });
-    clearTimeout(timeoutId);
-    
-    if (!response.ok) {
-      console.log(`✗ HTTP error ${response.status} for ${name}`);
-      return [];
-    }
+    const response = await fetch(apiUrl);
+    if (!response.ok) return [];
     
     const data = await response.json();
+    if (data.status !== 'ok' || !data.items) return [];
     
-    if (data.status !== 'ok' || !data.items || data.items.length === 0) {
-      console.log(`✗ No items from ${name}`);
-      return [];
-    }
-    
-    const articles = data.items.map(item => ({
+    return data.items.map(item => ({
       title: item.title || '',
       link: item.link || '',
-      description: (item.description || '').replace(/<[^>]*>/g, '').trim(),
-      pubDate: item.pubDate || '',
-      source: name
+      description: (item.description || '').replace(/<[^>]*>/g, '').substring(0, 200),
+      pubDate: item.pubDate || new Date().toISOString(),
+      source: item.author || 'Google News'
     })).filter(article => article.title && article.link);
     
-    console.log(`✓ Fetched ${articles.length} articles from ${name}`);
-    return articles;
-    
   } catch (error) {
-    if (error.name === 'AbortError') {
-      console.log(`⏱ Timeout fetching ${name}`);
-    } else {
-      console.log(`✗ Error fetching ${name}:`, error.message);
-    }
+    console.error('Error fetching feed:', error);
     return [];
   }
 }
@@ -178,95 +51,37 @@ async function fetchRSSFeed(feedObj) {
 function isRelevantArticle(article) {
   const text = (article.title + ' ' + article.description).toLowerCase();
   
-  // AGGRESSIVE EXCLUSIONS - reject stock picks, company analysis, crypto
+  // Exclude unwanted content
   const excludeTerms = [
-    // Crypto
-    'cryptocurrency', 'crypto', 'bitcoin', 'ethereum', 'nft', 'blockchain', 'chainlink',
-    'dogecoin', 'ripple', 'cardano',
-    
-    // Stock-specific language
-    'stock to buy', 'stocks to buy', 'buy this stock', 'stock alert', 'stock pick',
-    'better buy', 'stock while', 'vs.', 'stock up', 'stock down', 'buy right now',
-    'dividend stock', 'share', 'shares', 'market share', 'stock yielding',
-    'etf to buy', 'better long-term play', 'still a buy', 'great buys',
-    
-    // Trading/investment language
-    'trading', 'trader', 'day trade', 'options', 'penny stock', 'forex',
-    'technical analysis', 'chart pattern', 'momentum', 'hedge fund',
-    
-    // Individual companies (common stock picks)
-    'walmart', 'target', 'amazon', 'apple', 'tesla', 'nvidia', 'microsoft',
-    'oracle', 'intel', 'micron', 'rocket lab', 'energy transfer',
-    
-    // Investment jargon
-    'voog', 'iwo', 'quantum computing stocks', 'ai stock', 'semiconductor',
-    'billionaire', 'hedge fund', 'portfolio'
+    'stock to buy', 'stocks to buy', 'buy this stock', 'crypto', 'bitcoin', 
+    'ethereum', 'nft', 'forex', 'penny stock', 'trading alert'
   ];
   
-  // Check exclusions
   for (const term of excludeTerms) {
-    if (text.includes(term)) {
-      return false;
-    }
+    if (text.includes(term)) return false;
   }
   
-  // Must match at least one relevant keyword for personal finance
-  const relevantKeywords = [
-    // Retirement
-    'retirement', '401k', '401(k)', 'ira', 'roth', 'pension', 'social security', 
-    'medicare', 'rmd', 'annuity', 'retiree', 'catch-up',
-    
-    // Tax
-    'tax', 'irs', 'deduction', 'refund', 'filing', 'bracket', 'estate tax', 
-    'gift tax', 'tax credit', 'withholding', 'tax planning',
-    
-    // Savings & Banking
-    'savings account', 'bank account', 'interest rate', 'apy', 'cd', 
-    'certificate of deposit', 'bond', 'i bond', 'treasury', 'high-yield', 
-    'money market', 'emergency fund',
-    
-    // Personal Finance
-    'personal finance', 'budget', 'budgeting', 'debt', 'mortgage', 'loan', 
-    'credit card', 'credit score', 'financial planning', 'estate planning',
-    'hsa', 'health savings'
-  ];
-  
-  return relevantKeywords.some(keyword => text.includes(keyword));
+  return true;
 }
 
 async function loadNews() {
   const feedDiv = document.getElementById('news-feed');
-  feedDiv.innerHTML = '<p style="color: #64748b;"><em>Loading latest financial news...</em></p>';
+  feedDiv.innerHTML = '<p style="color: #64748b;"><em>Loading latest financial news from Google News...</em></p>';
   
   let allArticles = [];
-  let successCount = 0;
   
-  // Try to fetch from RSS feeds
-  const fetchPromises = RSS_FEEDS.map(feed => fetchRSSFeed(feed));
-  const results = await Promise.all(fetchPromises);
-  
-  results.forEach(articles => {
-    if (articles.length > 0) {
-      successCount++;
-      allArticles = allArticles.concat(articles);
-    }
-  });
-  
-  console.log(`Successfully fetched from ${successCount}/${RSS_FEEDS.length} feeds`);
-  console.log(`Total articles from RSS: ${allArticles.length}`);
-  
-  // If we got fewer than 5 articles, use fallback content
-  if (allArticles.length < 5) {
-    console.log('Using fallback curated content');
-    allArticles = FALLBACK_NEWS.slice();
+  // Fetch from all feeds
+  for (const feedUrl of NEWS_FEEDS) {
+    const articles = await fetchGoogleNewsRSS(feedUrl);
+    allArticles = allArticles.concat(articles);
   }
   
-  // Filter for relevant content
+  console.log(`Fetched ${allArticles.length} articles from Google News`);
+  
+  // Filter relevant articles
   let filteredArticles = allArticles.filter(article => isRelevantArticle(article));
   
-  console.log(`After filtering: ${filteredArticles.length} relevant articles`);
-  
-  // Remove duplicates based on title
+  // Remove duplicates
   const seen = new Set();
   filteredArticles = filteredArticles.filter(article => {
     const key = article.title.toLowerCase().substring(0, 50);
@@ -276,21 +91,17 @@ async function loadNews() {
   });
   
   // Sort by date
-  filteredArticles.sort((a, b) => {
-    const dateA = new Date(a.pubDate || '2025-01-01');
-    const dateB = new Date(b.pubDate || '2025-01-01');
-    return dateB - dateA;
-  });
+  filteredArticles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
   
-  // Limit to 15 articles
-  filteredArticles = filteredArticles.slice(0, 15);
+  // Limit to 20 articles
+  filteredArticles = filteredArticles.slice(0, 20);
   
   if (filteredArticles.length === 0) {
     feedDiv.innerHTML = `
       <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; border-radius: 8px;">
         <p style="margin: 0; color: #92400e;">
-          <strong>No relevant articles found.</strong><br>
-          Please check back later for updates on retirement, taxes, and personal finance.
+          <strong>Unable to load news at this time.</strong><br>
+          Please try refreshing the page. If the issue persists, news feeds may be temporarily unavailable.
         </p>
       </div>
     `;
@@ -300,22 +111,12 @@ async function loadNews() {
   // Display articles
   let html = '<div style="max-width: 900px;">';
   
-  // Add indicator if using fallback
-  if (successCount === 0) {
-    html += `
-      <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 0.75rem; margin-bottom: 1.5rem; border-radius: 8px; font-size: 0.9rem;">
-        <p style="margin: 0; color: #075985;">
-          📰 <strong>Showing curated news highlights.</strong> Live feeds will resume when available.
-        </p>
-      </div>
-    `;
-  }
-  
   filteredArticles.forEach(article => {
-    const description = article.description.substring(0, 200);
-    const displayDate = article.pubDate ? 
-      new Date(article.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) :
-      'Recent';
+    const displayDate = new Date(article.pubDate).toLocaleDateString('en-US', { 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    });
     
     html += `
       <div style="background: white; border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.06); transition: box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.12)'" onmouseout="this.style.boxShadow='0 2px 12px rgba(0,0,0,0.06)'">
@@ -328,7 +129,7 @@ async function loadNews() {
           ${displayDate}${article.source ? ' • ' + article.source : ''}
         </p>
         <p style="margin: 0; color: #666; line-height: 1.6;">
-          ${description}${description.length >= 200 ? '...' : ''}
+          ${article.description}${article.description.length >= 200 ? '...' : ''}
         </p>
       </div>
     `;
@@ -394,6 +195,6 @@ function calculate() {
 ---
 
 <div style="background: #f1f5f9; padding: 1rem; border-radius: 8px; margin-top: 2rem; font-size: 0.9rem; color: #64748b;">
-  <p style="margin: 0;"><strong>News Sources:</strong> CNBC, Forbes, Bloomberg, MarketWatch, MSN Money, Washington Post, Money Magazine, Kiplinger, Investopedia, Bankrate, and Consumer Reports. Articles are automatically filtered to focus on retirement planning, personal finance, tax strategies, and savings topics relevant to our 40-60 year old audience.</p>
-  <p style="margin: 0.5rem 0 0 0;"><em>Content automatically updates when available, with curated fallback for reliability. Stock picks and cryptocurrency news are excluded.</em></p>
+  <p style="margin: 0;"><strong>News Source:</strong> Articles automatically pulled from Google News with search filters for retirement planning, personal finance, tax strategies, and savings topics.</p>
+  <p style="margin: 0.5rem 0 0 0;"><em>Content updates automatically each time you visit the page. Stock picks and cryptocurrency content are filtered out.</em></p>
 </div>
