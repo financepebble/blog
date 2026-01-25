@@ -9,7 +9,7 @@ permalink: /contact/
 <div class="cta-box" style="margin-left: 0; width: 100%;">
   <h3>Get in Touch</h3>
   <p>Whether you have a specific question, a story to share about your journey, or just want to say hello—I’m listening.</p>
-  <p><em>Note: While I can share my research and experience, please consult a tax professional for your specific filing needs.</em></p>
+  <p><em>Note: While I can share my research and experience, please consult a  professional CPA, CFP or Attorney for your specific  needs.</em></p>
 </div>
 
 <script async data-uid="5e6455d259" src="https://financepebble.kit.com/5e6455d259/index.js"></script>
