@@ -18,23 +18,45 @@ tags: [sandwich generation, tax deductions, caregiving, dependents, retirement]
     margin-bottom: 20px;
     border: 1px solid #01579b;
   }
-  .cta-box {
-    background-color: #f4f7f6;
-    border-left: 8px solid #2c3e50;
-    padding: 25px;
-    margin: 30px 0;
-    border-radius: 4px;
-  }
-  .cta-button {
-    background-color: #2c3e50;
-    color: white !important;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 4px;
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: bold;
-  }
+.cta-box {
+  /* INDENTATION: This moves the box 5% to the right */
+  margin-left: 5%; 
+  width: 95%; /* Adjusts width so it stays within the page bounds */
+
+  /* The Universal "Glass" Styling from before */
+  background-color: rgba(128, 128, 128, 0.08);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-left: 8px solid #64748b;
+
+  padding: 25px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  border-radius: 12px;
+  color: inherit; 
+}
+
+.cta-box h3 {
+  /* Removing hard-coded colors here so it uses your site's default H3 color */
+  color: inherit;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+.cta-button {
+  background-color: #475569; /* Slate - works in all themes */
+  color: #ffffff !important;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 700;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
   .pro-tip {
     background-color: #fffde7;
     border-left: 5px solid #fbc02d;
