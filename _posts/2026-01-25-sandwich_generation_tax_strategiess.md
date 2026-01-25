@@ -67,7 +67,9 @@ tags: [sandwich generation, tax deductions, caregiving, dependents, retirement]
 </style>
 
 
-
+<div style="background-color: #f8f9fa; border-left: 4px solid #6c757d; padding: 12px 16px; margin: 20px 0; font-size: 0.9em;">
+<p style="margin: 0; font-style: italic; color: #495057;"><strong>Tax Disclaimer:</strong> This article is for educational and informational purposes only and does not constitute tax, legal, or financial advice. Tax laws are complex and subject to change. Individual circumstances vary significantly. Before implementing any tax strategy, consult with a qualified tax professional (CPA, EA, or tax attorney) familiar with your specific situation. FinancePebble and the author assume no liability for actions taken based on information in this article.</p>
+</div>
 
 If you're in your 40s, 50s, or early 60s, chances are you're familiar with the squeeze. You're helping your college-age children with tuition while simultaneously managing your aging parents' medical bills. Your retirement savings are on pause while you juggle eldercare appointments and coordinate family support. You're stretched thin financially, emotionally exhausted, and wondering if anyone understands the weight you're carrying.
 
