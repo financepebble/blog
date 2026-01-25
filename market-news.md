@@ -15,22 +15,30 @@ Stay updated with the latest in retirement planning, personal finance, and tax s
 </div>
 
 <script>
-// Multiple diverse RSS feed sources for financial news
+// Diverse news sources - major news outlets, magazines, newspapers
 const RSS_FEEDS = [
-  // Major financial news (broader coverage)
-  { url: 'https://finance.yahoo.com/news/rssindex', name: 'Yahoo Finance' },
+  // Major news outlets
+  { url: 'https://www.cnbc.com/id/10000664/device/rss/rss.html', name: 'CNBC Personal Finance' },
+  { url: 'https://www.forbes.com/personal-finance/feed/', name: 'Forbes Personal Finance' },
+  { url: 'https://www.bloomberg.com/feed/podcast/etf-report.xml', name: 'Bloomberg' },
   { url: 'https://www.marketwatch.com/rss/topstories', name: 'MarketWatch' },
   
-  // Personal finance & retirement focused
-  { url: 'https://feeds.aarp.org/aarp/retirement.xml', name: 'AARP Retirement' },
+  // Newspapers
+  { url: 'https://www.washingtonpost.com/arcio/rss/category/business/', name: 'Washington Post' },
+  
+  // Financial magazines & sites
+  { url: 'https://money.com/feed/', name: 'Money Magazine' },
   { url: 'https://www.kiplinger.com/fronts/rss/all/index.rss', name: 'Kiplinger' },
+  { url: 'https://www.investopedia.com/feedbuilder/feed/getfeed?feedName=rss_headline', name: 'Investopedia' },
   
-  // Banking & savings
+  // Banking sites
   { url: 'https://www.bankrate.com/feed/', name: 'Bankrate' },
-  { url: 'https://www.nerdwallet.com/blog/feed/', name: 'NerdWallet' },
   
-  // Financial education
-  { url: 'https://www.investopedia.com/feedbuilder/feed/getfeed?feedName=rss_headline', name: 'Investopedia' }
+  // Consumer-focused
+  { url: 'https://www.consumerreports.org/rss/money.xml', name: 'Consumer Reports' },
+  
+  // MSN Money
+  { url: 'https://rss.msn.com/en-us/money', name: 'MSN Money' }
 ];
 
 // Fallback curated content (used if RSS feeds fail)
@@ -121,77 +129,48 @@ const FALLBACK_NEWS = [
   }
 ];
 
-function parseRSSItem(item) {
-  const getElementText = (element, tagName) => {
-    const el = element.getElementsByTagName(tagName)[0];
-    return el ? (el.textContent || el.innerText || '').trim() : '';
-  };
-  
-  return {
-    title: getElementText(item, 'title'),
-    link: getElementText(item, 'link'),
-    description: getElementText(item, 'description').replace(/<[^>]*>/g, '').trim(),
-    pubDate: getElementText(item, 'pubDate'),
-    source: ''
-  };
-}
-
 async function fetchRSSFeed(feedObj) {
   const { url, name } = feedObj;
   
   try {
-    // Multiple CORS proxy options
-    const proxies = [
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-      `https://corsproxy.io/?${encodeURIComponent(url)}`,
-      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
-    ];
+    // Use rss2json API - more reliable than CORS proxies
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(url)}&api_key=YOUR_API_KEY&count=15`;
     
-    for (const proxyUrl of proxies) {
-      try {
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
-        
-        const response = await fetch(proxyUrl, { signal: controller.signal });
-        clearTimeout(timeoutId);
-        
-        if (!response.ok) continue;
-        
-        const text = await response.text();
-        const parser = new DOMParser();
-        const xml = parser.parseFromString(text, 'text/xml');
-        
-        // Check for parsing errors
-        const parserError = xml.getElementsByTagName('parsererror');
-        if (parserError.length > 0) continue;
-        
-        const items = xml.getElementsByTagName('item');
-        const articles = [];
-        
-        for (let i = 0; i < Math.min(items.length, 10); i++) {
-          const article = parseRSSItem(items[i]);
-          if (article.title && article.link) {
-            article.source = name;
-            articles.push(article);
-          }
-        }
-        
-        if (articles.length > 0) {
-          console.log(`✓ Fetched ${articles.length} articles from ${name}`);
-          return articles;
-        }
-      } catch (e) {
-        if (e.name === 'AbortError') {
-          console.log(`⏱ Timeout fetching ${name}`);
-        }
-        continue;
-      }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8 second timeout
+    
+    const response = await fetch(apiUrl, { signal: controller.signal });
+    clearTimeout(timeoutId);
+    
+    if (!response.ok) {
+      console.log(`✗ HTTP error ${response.status} for ${name}`);
+      return [];
     }
     
-    console.log(`✗ All proxies failed for ${name}`);
-    return [];
+    const data = await response.json();
+    
+    if (data.status !== 'ok' || !data.items || data.items.length === 0) {
+      console.log(`✗ No items from ${name}`);
+      return [];
+    }
+    
+    const articles = data.items.map(item => ({
+      title: item.title || '',
+      link: item.link || '',
+      description: (item.description || '').replace(/<[^>]*>/g, '').trim(),
+      pubDate: item.pubDate || '',
+      source: name
+    })).filter(article => article.title && article.link);
+    
+    console.log(`✓ Fetched ${articles.length} articles from ${name}`);
+    return articles;
+    
   } catch (error) {
-    console.log(`✗ Error fetching ${name}:`, error.message);
+    if (error.name === 'AbortError') {
+      console.log(`⏱ Timeout fetching ${name}`);
+    } else {
+      console.log(`✗ Error fetching ${name}:`, error.message);
+    }
     return [];
   }
 }
@@ -415,6 +394,6 @@ function calculate() {
 ---
 
 <div style="background: #f1f5f9; padding: 1rem; border-radius: 8px; margin-top: 2rem; font-size: 0.9rem; color: #64748b;">
-  <p style="margin: 0;"><strong>News Sources:</strong> Yahoo Finance, MarketWatch, AARP, Kiplinger, Bankrate, NerdWallet, and Investopedia. Articles are automatically filtered to focus on retirement planning, personal finance, tax strategies, and savings topics relevant to our 40-60 year old audience.</p>
+  <p style="margin: 0;"><strong>News Sources:</strong> CNBC, Forbes, Bloomberg, MarketWatch, MSN Money, Washington Post, Money Magazine, Kiplinger, Investopedia, Bankrate, and Consumer Reports. Articles are automatically filtered to focus on retirement planning, personal finance, tax strategies, and savings topics relevant to our 40-60 year old audience.</p>
   <p style="margin: 0.5rem 0 0 0;"><em>Content automatically updates when available, with curated fallback for reliability. Stock picks and cryptocurrency news are excluded.</em></p>
 </div>
