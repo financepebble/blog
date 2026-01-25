@@ -8,14 +8,7 @@ permalink: /market-news/
 
 Stay updated with the latest in retirement planning, personal finance, and tax strategies.
 
-## Personal Finance News by Topic
-
-<div style="margin-bottom: 20px;">
-  <button onclick="loadNews('all')" id="btn-all" style="padding: 10px 20px; margin: 5px; cursor: pointer; background: #1e40af; color: white; border: none; border-radius: 50px; font-weight: 600;">All News</button>
-  <button onclick="loadNews('retirement')" id="btn-retirement" style="padding: 10px 20px; margin: 5px; cursor: pointer; background: #64748b; color: white; border: none; border-radius: 50px; font-weight: 600;">Retirement</button>
-  <button onclick="loadNews('tax')" id="btn-tax" style="padding: 10px 20px; margin: 5px; cursor: pointer; background: #64748b; color: white; border: none; border-radius: 50px; font-weight: 600;">Tax & Planning</button>
-  <button onclick="loadNews('savings')" id="btn-savings" style="padding: 10px 20px; margin: 5px; cursor: pointer; background: #64748b; color: white; border: none; border-radius: 50px; font-weight: 600;">Savings</button>
-</div>
+## Latest Financial News
 
 <div id="news-feed" style="margin-top: 30px;">
   <p>Loading news...</p>
@@ -24,7 +17,7 @@ Stay updated with the latest in retirement planning, personal finance, and tax s
 <script>
 // Multiple diverse RSS feed sources for financial news
 const RSS_FEEDS = [
-  // Major financial news
+  // Major financial news (broader coverage)
   { url: 'https://finance.yahoo.com/news/rssindex', name: 'Yahoo Finance' },
   { url: 'https://www.marketwatch.com/rss/topstories', name: 'MarketWatch' },
   
@@ -36,8 +29,7 @@ const RSS_FEEDS = [
   { url: 'https://www.bankrate.com/feed/', name: 'Bankrate' },
   { url: 'https://www.nerdwallet.com/blog/feed/', name: 'NerdWallet' },
   
-  // Investment & planning
-  { url: 'https://www.fool.com/feeds/index.aspx', name: 'Motley Fool' },
+  // Financial education
   { url: 'https://www.investopedia.com/feedbuilder/feed/getfeed?feedName=rss_headline', name: 'Investopedia' }
 ];
 
@@ -48,108 +40,86 @@ const FALLBACK_NEWS = [
     description: "The IRS announced higher contribution limits for 401(k), IRA, and other retirement accounts for 2026. Workers under 50 can contribute up to $23,500 to 401(k) plans, while catch-up contributions for those 50+ increased to $7,500.",
     link: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-401k-and-profit-sharing-plan-contribution-limits",
     pubDate: "2026-01-20",
-    source: "IRS",
-    category: ['all', 'retirement']
+    source: "IRS"
   },
   {
     title: "High-Yield Savings Accounts Still Offering Over 4% APY",
     description: "Despite market volatility, several online banks continue offering competitive savings rates above 4% APY. Financial experts recommend comparing rates quarterly as the Fed evaluates monetary policy.",
     link: "https://www.bankrate.com/banking/savings/rates/",
     pubDate: "2026-01-18",
-    source: "Bankrate",
-    category: ['all', 'savings']
+    source: "Bankrate"
   },
   {
     title: "Tax Brackets Adjusted for Inflation in 2026",
     description: "The IRS released updated federal income tax brackets for 2026, with inflation adjustments benefiting most taxpayers. The standard deduction also increased to $16,100 for single filers and $32,200 for married couples filing jointly.",
     link: "https://www.irs.gov/newsroom/irs-provides-tax-inflation-adjustments-for-tax-year-2026",
     pubDate: "2026-01-15",
-    source: "IRS",
-    category: ['all', 'tax']
+    source: "IRS"
   },
   {
     title: "Social Security COLA Increase Takes Effect",
     description: "Over 71 million Americans will see a cost-of-living adjustment in their Social Security benefits this year. Understanding how COLA affects retirement income is crucial for financial planning.",
     link: "https://www.ssa.gov/cola/",
     pubDate: "2026-01-12",
-    source: "Social Security Administration",
-    category: ['all', 'retirement']
+    source: "Social Security Administration"
   },
   {
     title: "Medicare Part B Premium Changes for 2026",
     description: "The standard Medicare Part B premium has been announced for 2026. High-income beneficiaries should review IRMAA thresholds to understand their potential premium adjustments.",
     link: "https://www.medicare.gov/your-medicare-costs/part-b-costs",
     pubDate: "2026-01-10",
-    source: "Medicare.gov",
-    category: ['all', 'retirement', 'tax']
+    source: "Medicare.gov"
   },
   {
     title: "Series I Bonds: Are They Still Worth Buying?",
     description: "Treasury I Bonds continue to offer inflation protection with rates adjusting semi-annually. Financial planners weigh in on whether these securities still make sense for conservative investors.",
     link: "https://www.treasurydirect.gov/savings-bonds/i-bonds/",
     pubDate: "2026-01-08",
-    source: "TreasuryDirect",
-    category: ['all', 'savings']
+    source: "TreasuryDirect"
   },
   {
     title: "Health Savings Account Limits Rise for 2026",
     description: "HSA contribution limits increased to $4,300 for individuals and $8,550 for families in 2026. These tax-advantaged accounts remain powerful tools for retirement healthcare planning.",
     link: "https://www.irs.gov/publications/p969",
     pubDate: "2026-01-05",
-    source: "IRS",
-    category: ['all', 'retirement', 'tax', 'savings']
+    source: "IRS"
   },
   {
     title: "Estate Tax Exemption Reaches $15 Million Per Person",
     description: "The federal estate tax exemption continues climbing with inflation adjustments. Estate planning professionals recommend reviewing strategies given potential future tax law changes.",
     link: "https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax",
     pubDate: "2026-01-03",
-    source: "IRS",
-    category: ['all', 'tax']
+    source: "IRS"
   },
   {
     title: "Credit Card Interest Rates Hit Record Highs",
     description: "Average credit card APRs exceed 21%, prompting financial experts to recommend aggressive debt paydown strategies including balance transfers and the avalanche method.",
     link: "https://www.nerdwallet.com/article/credit-cards/credit-card-interest-rate",
     pubDate: "2025-12-28",
-    source: "NerdWallet",
-    category: ['all', 'savings']
+    source: "NerdWallet"
   },
   {
     title: "Required Minimum Distribution Rules Updated",
     description: "New RMD regulations affect retirees with traditional IRAs and 401(k)s. Understanding when withdrawals must begin is critical to avoid hefty IRS penalties.",
     link: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-required-minimum-distributions-rmds",
     pubDate: "2025-12-22",
-    source: "IRS",
-    category: ['all', 'retirement', 'tax']
+    source: "IRS"
   },
   {
     title: "Bank Account Bonuses: Top Offers for Early 2026",
     description: "Major banks are offering cash bonuses ranging from $200 to $500 for new checking and savings accounts. Compare requirements carefully before opening accounts solely for bonuses.",
     link: "https://www.bankrate.com/banking/bank-promotions/",
     pubDate: "2025-12-20",
-    source: "Bankrate",
-    category: ['all', 'savings']
+    source: "Bankrate"
   },
   {
     title: "Enhanced Catch-Up Contributions for Ages 60-63",
     description: "Workers aged 60-63 can now make super catch-up contributions to 401(k) plans up to $11,250 for 2026, significantly boosting late-career retirement savings potential.",
     link: "https://www.irs.gov/retirement-plans/plan-participant-employee/retirement-topics-catch-up-contributions",
     pubDate: "2025-12-15",
-    source: "IRS",
-    category: ['all', 'retirement']
+    source: "IRS"
   }
 ];
-
-function highlightActiveButton(category) {
-  document.querySelectorAll('[id^="btn-"]').forEach(btn => {
-    btn.style.background = '#64748b';
-  });
-  const activeBtn = document.getElementById(`btn-${category}`);
-  if (activeBtn) {
-    activeBtn.style.background = '#1e40af';
-  }
-}
 
 function parseRSSItem(item) {
   const getElementText = (element, tagName) => {
@@ -226,40 +196,68 @@ async function fetchRSSFeed(feedObj) {
   }
 }
 
-function isRelevantToCategory(article, category) {
-  if (category === 'all') return true;
-  
-  // For fallback news, use pre-assigned categories
-  if (article.category) {
-    return article.category.includes(category);
-  }
-  
+function isRelevantArticle(article) {
   const text = (article.title + ' ' + article.description).toLowerCase();
   
-  // Exclude unwanted content
-  const excludeTerms = ['cryptocurrency', 'crypto', 'bitcoin', 'ethereum', 'nft', 'forex'];
-  if (excludeTerms.some(term => text.includes(term))) {
-    return false;
+  // AGGRESSIVE EXCLUSIONS - reject stock picks, company analysis, crypto
+  const excludeTerms = [
+    // Crypto
+    'cryptocurrency', 'crypto', 'bitcoin', 'ethereum', 'nft', 'blockchain', 'chainlink',
+    'dogecoin', 'ripple', 'cardano',
+    
+    // Stock-specific language
+    'stock to buy', 'stocks to buy', 'buy this stock', 'stock alert', 'stock pick',
+    'better buy', 'stock while', 'vs.', 'stock up', 'stock down', 'buy right now',
+    'dividend stock', 'share', 'shares', 'market share', 'stock yielding',
+    'etf to buy', 'better long-term play', 'still a buy', 'great buys',
+    
+    // Trading/investment language
+    'trading', 'trader', 'day trade', 'options', 'penny stock', 'forex',
+    'technical analysis', 'chart pattern', 'momentum', 'hedge fund',
+    
+    // Individual companies (common stock picks)
+    'walmart', 'target', 'amazon', 'apple', 'tesla', 'nvidia', 'microsoft',
+    'oracle', 'intel', 'micron', 'rocket lab', 'energy transfer',
+    
+    // Investment jargon
+    'voog', 'iwo', 'quantum computing stocks', 'ai stock', 'semiconductor',
+    'billionaire', 'hedge fund', 'portfolio'
+  ];
+  
+  // Check exclusions
+  for (const term of excludeTerms) {
+    if (text.includes(term)) {
+      return false;
+    }
   }
   
-  const keywords = {
-    'retirement': ['retire', 'retirement', '401k', '401(k)', 'ira', 'roth', 'pension', 'social security', 
-                   'medicare', 'rmd', 'annuity', 'nest egg', 'senior', 'retiree', 'catch-up'],
-    'tax': ['tax', 'irs', 'deduction', 'refund', 'filing', 'bracket', 'estate tax', 'gift tax',
-            'standard deduction', 'itemized', 'tax credit', 'withholding', 'tax planning'],
-    'savings': ['saving', 'savings', 'bank', 'interest rate', 'apy', 'cd', 'certificate of deposit',
-                'bond', 'i bond', 'yield', 'deposit', 'high-yield', 'money market', 'emergency fund']
-  };
+  // Must match at least one relevant keyword for personal finance
+  const relevantKeywords = [
+    // Retirement
+    'retirement', '401k', '401(k)', 'ira', 'roth', 'pension', 'social security', 
+    'medicare', 'rmd', 'annuity', 'retiree', 'catch-up',
+    
+    // Tax
+    'tax', 'irs', 'deduction', 'refund', 'filing', 'bracket', 'estate tax', 
+    'gift tax', 'tax credit', 'withholding', 'tax planning',
+    
+    // Savings & Banking
+    'savings account', 'bank account', 'interest rate', 'apy', 'cd', 
+    'certificate of deposit', 'bond', 'i bond', 'treasury', 'high-yield', 
+    'money market', 'emergency fund',
+    
+    // Personal Finance
+    'personal finance', 'budget', 'budgeting', 'debt', 'mortgage', 'loan', 
+    'credit card', 'credit score', 'financial planning', 'estate planning',
+    'hsa', 'health savings'
+  ];
   
-  const categoryKeywords = keywords[category] || [];
-  return categoryKeywords.some(keyword => text.includes(keyword));
+  return relevantKeywords.some(keyword => text.includes(keyword));
 }
 
-async function loadNews(category) {
+async function loadNews() {
   const feedDiv = document.getElementById('news-feed');
   feedDiv.innerHTML = '<p style="color: #64748b;"><em>Loading latest financial news...</em></p>';
-  
-  highlightActiveButton(category);
   
   let allArticles = [];
   let successCount = 0;
@@ -284,10 +282,10 @@ async function loadNews(category) {
     allArticles = FALLBACK_NEWS.slice();
   }
   
-  // Filter by category
-  let filteredArticles = allArticles.filter(article => isRelevantToCategory(article, category));
+  // Filter for relevant content
+  let filteredArticles = allArticles.filter(article => isRelevantArticle(article));
   
-  console.log(`After filtering for ${category}: ${filteredArticles.length}`);
+  console.log(`After filtering: ${filteredArticles.length} relevant articles`);
   
   // Remove duplicates based on title
   const seen = new Set();
@@ -305,15 +303,15 @@ async function loadNews(category) {
     return dateB - dateA;
   });
   
-  // Limit to 12 articles
-  filteredArticles = filteredArticles.slice(0, 12);
+  // Limit to 15 articles
+  filteredArticles = filteredArticles.slice(0, 15);
   
   if (filteredArticles.length === 0) {
     feedDiv.innerHTML = `
       <div style="background: #fef3c7; border-left: 4px solid #f59e0b; padding: 1rem; border-radius: 8px;">
         <p style="margin: 0; color: #92400e;">
-          <strong>No articles found for this category.</strong><br>
-          Try selecting "All News" or another category.
+          <strong>No relevant articles found.</strong><br>
+          Please check back later for updates on retirement, taxes, and personal finance.
         </p>
       </div>
     `;
@@ -361,8 +359,8 @@ async function loadNews(category) {
   feedDiv.innerHTML = html;
 }
 
-// Load all news by default
-window.onload = () => loadNews('all');
+// Load news on page load
+window.onload = () => loadNews();
 </script>
 
 ---
@@ -417,6 +415,6 @@ function calculate() {
 ---
 
 <div style="background: #f1f5f9; padding: 1rem; border-radius: 8px; margin-top: 2rem; font-size: 0.9rem; color: #64748b;">
-  <p style="margin: 0;"><strong>News Sources:</strong> Yahoo Finance, MarketWatch, AARP, Kiplinger, Bankrate, NerdWallet, Motley Fool, and Investopedia. Articles are automatically filtered to focus on retirement, personal finance, tax planning, and savings topics relevant to our 40-60 year old audience.</p>
-  <p style="margin: 0.5rem 0 0 0;"><em>Page automatically pulls latest news when available, with curated fallback content for reliability.</em></p>
+  <p style="margin: 0;"><strong>News Sources:</strong> Yahoo Finance, MarketWatch, AARP, Kiplinger, Bankrate, NerdWallet, and Investopedia. Articles are automatically filtered to focus on retirement planning, personal finance, tax strategies, and savings topics relevant to our 40-60 year old audience.</p>
+  <p style="margin: 0.5rem 0 0 0;"><em>Content automatically updates when available, with curated fallback for reliability. Stock picks and cryptocurrency news are excluded.</em></p>
 </div>
