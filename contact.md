@@ -97,7 +97,36 @@ permalink: /contact/
   background: transparent !important;
   border: 1px solid #64748b !important;
 }
- 
+/* --- ULTIMATE KIT TRANSPARENCY FIX --- */
+
+/* Targets the specific ID and all potential wrapper divs */
+[id^="ck_"], 
+.ck_form, 
+.ck_form_fields, 
+.ck_form_container,
+.ck_minimal {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Forces the "Message" input and Email input to behave */
+.ck_input, 
+input[type="text"], 
+input[type="email"] {
+  background-color: rgba(128, 128, 128, 0.1) !important;
+  color: inherit !important;
+  border: 1px solid rgba(128, 128, 128, 0.3) !important;
+}
+
+/* This targets the text that Kit injects */
+.ck_form h3, 
+.ck_form p, 
+.ck_form label, 
+.ck_help_block {
+  color: inherit !important;
+} 
 </style>
 
 
