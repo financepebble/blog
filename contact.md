@@ -58,6 +58,46 @@ permalink: /contact/
       width: 100%;
     }
   }
+
+ /* --- MILLS TEMPLATE FIXES --- */
+
+/* 1. Remove the white box background and borders */
+.ck_form.ck_minimal, 
+.ck_form.ck_minimal .ck_form_fields {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 2. Force all text (Headers, Labels, Inputs) to inherit your theme colors */
+.ck_form.ck_minimal h3,
+.ck_form.ck_minimal .ck_help_block,
+.ck_form.ck_minimal label,
+.ck_form.ck_minimal .ck_input {
+  color: inherit !important;
+}
+
+/* 3. Make the input boxes (Email & Message) look good in both modes */
+.ck_form.ck_minimal .ck_input {
+  background-color: rgba(128, 128, 128, 0.1) !important;
+  border: 1px solid rgba(128, 128, 128, 0.3) !important;
+  border-radius: 4px !important;
+}
+
+/* 4. Ensure the Button doesn't disappear */
+.ck_form.ck_minimal .ck_subscribe_button {
+  background-color: #475569 !important; /* Slate Blue-Grey */
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* 5. The "Success Message" fix */
+.ck_form.ck_minimal .ck_success {
+  color: inherit !important;
+  background: transparent !important;
+  border: 1px solid #64748b !important;
+}
+ 
 </style>
 
 
