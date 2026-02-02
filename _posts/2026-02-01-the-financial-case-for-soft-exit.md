@@ -5,8 +5,7 @@ date: 2026-02-01
 tags: [personal-finance, retirement, burnout, part-time-work, tax-planning, benefits]
 ---
 
-# Burned Out but Not Ready to Retire?  
-## The Financial Case for a *Soft Exit*
+
 
 I know someone—let’s call her **Maria**—who at 52 had one of those wake-up moments we all dread. She was sitting in her car in the office parking lot, unable to make herself go inside. Not because she hated her job, but because after 28 years in corporate marketing, she was simply depleted.
 
@@ -115,10 +114,9 @@ A soft exit isn’t giving up. It’s a strategic pivot. If you’re sitting in 
 
 You don’t have to choose between your health and your security. Sometimes, the smartest financial move is simply staying in the game long enough to finish it.
 
----
-
 *Disclaimer: The information provided on FinancePebble.com is for informational and educational purposes only and does not constitute professional financial, tax, or legal advice. All calculations and projections are hypothetical examples and are not a guarantee of future results. Financial situations are unique to each individual; we highly recommend consulting with a qualified professional before making significant changes to your career, tax strategy, or retirement plan. Investing involves risk, including the possible loss of principal.*
 
+---
 
 ## Footnotes
 
@@ -132,6 +130,7 @@ You don’t have to choose between your health and your security. Sometimes, the
 [^8]: Vanguard/Morningstar, *Long-Term Capital Market Assumptions (Nominal 7% return model)*.
 
 ---
+
 
 
 
