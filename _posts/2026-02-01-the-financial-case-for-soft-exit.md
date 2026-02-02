@@ -117,6 +117,9 @@ You don’t have to choose between your health and your security. Sometimes, the
 
 ---
 
+*Disclaimer: The information provided on FinancePebble.com is for informational and educational purposes only and does not constitute professional financial, tax, or legal advice. All calculations and projections are hypothetical examples and are not a guarantee of future results. Financial situations are unique to each individual; we highly recommend consulting with a qualified professional before making significant changes to your career, tax strategy, or retirement plan. Investing involves risk, including the possible loss of principal.*
+
+
 ## Footnotes
 
 [^1]: Eagle Hill Consulting, *2025 Workforce Burnout Survey*, conducted with Ipsos.
@@ -130,4 +133,6 @@ You don’t have to choose between your health and your security. Sometimes, the
 
 ---
 
-*Disclaimer: The information provided on FinancePebble.com is for informational and educational purposes only and does not constitute professional financial, tax, or legal advice. All calculations and projections are hypothetical examples and are not a guarantee of future results. Financial situations are unique to each individual; we highly recommend consulting with a qualified professional before making significant changes to your career, tax strategy, or retirement plan. Investing involves risk, including the possible loss of principal.*
+
+
+
