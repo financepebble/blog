@@ -12,6 +12,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-feed
 
 paginate: 5          # posts per page
 paginate_path: "/page:num/"
