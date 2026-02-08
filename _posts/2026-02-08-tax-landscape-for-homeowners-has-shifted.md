@@ -134,6 +134,3 @@ The **Standard Deduction** for 2026 has been adjusted for inflation: [14]
 
 **Disclaimer:** *This article is for informational purposes only and should not be construed as tax advice. Please consult with a qualified tax professional before filing.*
 
----
-
-**Would you like me to create a "2026 Tax Season Checklist" that you can add as a downloadable PDF for your readers?**
