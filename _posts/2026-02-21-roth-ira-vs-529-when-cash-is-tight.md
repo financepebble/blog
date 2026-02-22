@@ -6,11 +6,7 @@ tags: [retirement, education savings, Roth IRA, 529 plan, FAFSA, personal financ
 description: "Budget squeezed? Every dollar must work overtime. Discover why prioritizing your Roth IRA over a 529 plan is often the smarter play for your family's future."
 ---
 
-# Why a Roth IRA Might Be a Better Bet Than a 529 When Cash Is Tight
 
-*By FinancePebble · February 21, 2026*
-
----
 
 You love your kids. Of course you want to fund their college education. But here's a question that doesn't get asked enough: **what if doing so comes at a direct cost to your own retirement?**
 
