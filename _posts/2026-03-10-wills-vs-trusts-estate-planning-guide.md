@@ -26,7 +26,6 @@ reading_time: "14 min"
 last_updated: 2026-03-10
 ---
 
-# Wills vs Trusts: A Practical Beginner's Guide to Estate Planning
 
 *You've worked hard to build savings, buy a home, and set aside retirement money. But have you thought about what happens to all of it when you're gone — or if you're suddenly incapacitated? If that question makes you squirm a little, you're not alone. Estate planning is the thing most financially-aware adults know they should do but keep putting off.*
 
@@ -214,7 +213,7 @@ A **pour-over will** catches anything that didn't make it into the trust (maybe 
 
 Think of the trust as the main engine and the will as the safety net. You need both.
 
-> **👤 Example:** *Lisa & Tom, 47 & 45, own a home in California worth $750,000, have two teenagers, and hold $400,000 in brokerage and retirement accounts. They set up a revocable living trust, title the house and brokerage account in the trust's name, and create a pour-over will that names a guardian for their kids. Their retirement accounts list the trust as contingent beneficiary and each other as primary. Cost: $2,800. Without this, their estate would face California probate — notoriously slow and expensive — potentially costing their kids $30,000+ and 18 months of waiting.*
+> **👤 Example:** *Lisa & Mark, 47 & 45, own a home in California worth $750,000, have two teenagers, and hold $400,000 in brokerage and retirement accounts. They set up a revocable living trust, title the house and brokerage account in the trust's name, and create a pour-over will that names a guardian for their kids. Their retirement accounts list the trust as contingent beneficiary and each other as primary. Cost: $2,800. Without this, their estate would face California probate — notoriously slow and expensive — potentially costing their kids $30,000+ and 18 months of waiting.*
 
 ---
 
@@ -359,12 +358,6 @@ Your future self — and the people you love — will thank you.
 
 ---
 
-*📌 Related reading on FinancePebble:*
-- *[How to Choose the Right Retirement Accounts for Your Situation](#)*
-- *[Understanding RMDs: What Every Pre-Retiree Needs to Know](#)*
-- *[High-Yield Savings Accounts: Are You Earning What You Should?](#)*
-
----
 
 > **Disclaimer:** This article is for educational purposes only and does not constitute legal or tax advice. Estate planning laws vary by state. Please consult a licensed estate planning attorney and/or CPA for guidance specific to your situation. Tax figures reflect current law as of the date of publication.
 >
